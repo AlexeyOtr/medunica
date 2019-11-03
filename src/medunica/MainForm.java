@@ -1,8 +1,6 @@
 
 package medunica;
 
-import java.awt.Component;
-import javax.swing.JOptionPane;
 
 public class MainForm extends javax.swing.JFrame {
 
