@@ -13,7 +13,7 @@ public class DataBase {
     public DataBase(String pth, String us, String pass) {
         if(loadDriverDB()){
             try {
-            conn = DriverManager.getConnection(pth + "&user=" + us + "&password="+ pass);
+                conn = DriverManager.getConnection(pth + "&user=" + us + "&password="+ pass);
             } catch (SQLException ex) {
                 System.err.println("SQLException: " + ex.getMessage());
                 System.err.println("SQLState: " + ex.getSQLState());
