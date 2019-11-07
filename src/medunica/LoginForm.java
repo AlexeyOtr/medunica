@@ -1,9 +1,21 @@
 package medunica;
 
+// Окно ввода логина и паролья
+// 1. Маска ввода символов в поле ввода логина, огланичения максимального кол-ва символов
+// 2. сделать драйвер запросов к бд
+//
+// при нажатии кнопки Ок делаем запрос к бд на предмет проверки пользователя и пароля, а так же способа доступа (админ, регистратор или кто-либо ещё)
+// и на основании вернувшегося ответа запускаем соотв окно, либо окно ошибки подключения
+
 public class LoginForm extends javax.swing.JFrame {
 
+    DataBase db = null;
+    
     public LoginForm() {
             initComponents();
+            // стоит подумать о том, что бы данный запрос не передавать в качестве параметра, а делать это в классе DataBase
+            // db = new DataBase("jdbc:mysql://localhost/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
+     
     }
 
     @SuppressWarnings("unchecked")
@@ -14,10 +26,11 @@ public class LoginForm extends javax.swing.JFrame {
         textFieldLogin = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("МЕДУНИЦА");
+        setType(java.awt.Window.Type.UTILITY);
 
         okBtn.setText("Ok");
         okBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -45,20 +58,20 @@ public class LoginForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textFieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1))))
+                            .addComponent(passwordField))))
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLogin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(okBtn)
                 .addContainerGap())
@@ -69,8 +82,8 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
-        AdminForm adminForm = new AdminForm();
-        adminForm.setVisible(true);
+        System.out.println(textFieldLogin.getText());
+        System.out.println(passwordField.getPassword());
     }//GEN-LAST:event_okBtnActionPerformed
    
     public static void main(String args[]) {
@@ -108,9 +121,9 @@ public class LoginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JButton okBtn;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField textFieldLogin;
     // End of variables declaration//GEN-END:variables
 }

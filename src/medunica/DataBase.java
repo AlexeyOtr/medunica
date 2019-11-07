@@ -33,16 +33,4 @@ public class DataBase {
             }
     }
     
-    // Подключение к БД
-    private boolean connectDatabase(String pth, String us, String pass){
-        try {
-            conn = DriverManager.getConnection(pth + "&user=" + us + "&password="+ pass);
-            return true;
-            } catch (SQLException ex) {
-                System.err.println("SQLException: " + ex.getMessage());
-                System.err.println("SQLState: " + ex.getSQLState());
-                System.err.println("VendorError: " + ex.getErrorCode());
-                return false;
-            }
-    }
 }
