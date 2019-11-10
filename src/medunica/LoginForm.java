@@ -84,6 +84,13 @@ public class LoginForm extends javax.swing.JFrame {
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
         System.out.println(textFieldLogin.getText());
         System.out.println(passwordField.getPassword());
+        
+        Cod cod = new Cod();
+        cod.setVisible(true);
+        
+        this.setVisible(false);
+        this.dispose();
+        
     }//GEN-LAST:event_okBtnActionPerformed
    
     public static void main(String args[]) {
