@@ -1,4 +1,3 @@
-
 package medunica;
 
 public class AdminForm extends javax.swing.JFrame {

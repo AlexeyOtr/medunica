@@ -85,8 +85,8 @@ public class LoginForm extends javax.swing.JFrame {
         System.out.println(textFieldLogin.getText());
         System.out.println(passwordField.getPassword());
         
-        Cod cod = new Cod();
-        cod.setVisible(true);
+        Registrator registrator = new Registrator();
+        registrator.setVisible(true);
         
         this.setVisible(false);
         this.dispose();
