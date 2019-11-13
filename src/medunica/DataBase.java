@@ -46,7 +46,7 @@ public class DataBase {
     }
     
     // Отправка запроса к БД, возвращает результат запроса
-    public ResultSet sendRequest(String query){
+    public ResultSet sendSelect(String query){
             try {
                 Statement stmt = conn.createStatement();
                 return stmt.executeQuery(query);
@@ -54,8 +54,20 @@ public class DataBase {
                 System.err.println("Ошибка запроса к БД");
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
-                System.exit(0);
                 return null;
+            }
+    }
+    
+    // Отправка запроса к БД, INSERT
+    public boolean sendInsert(String query){
+            try {
+                Statement stmt = conn.createStatement();
+                return stmt.execute(query);
+            } catch (SQLException ex) {
+                System.err.println("Ошибка запроса к БД");
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
+                return false;
             }
     }
 }

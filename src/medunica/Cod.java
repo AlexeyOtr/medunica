@@ -1,13 +1,17 @@
 package medunica;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Cod extends javax.swing.JFrame {
 
     DataBase db = null;
     
     public Cod() {
         initComponents();
-        db = new DataBase("jdbc:mysql://localhost/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
-        System.out.println(db);
+        db = new DataBase("jdbc:mysql://localhost/medunica?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
     }
 
     @SuppressWarnings("unchecked")
@@ -48,6 +52,7 @@ public class Cod extends javax.swing.JFrame {
 
     private void testBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testBtnActionPerformed
         // TODO add your handling code here:
+        db.sendInsert("INSERT INTO login (login, password, personal_id) VALUES('dsgsde', 'ioshrgoir', 1)");
         
     }//GEN-LAST:event_testBtnActionPerformed
 
