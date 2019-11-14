@@ -5,6 +5,8 @@
  */
 package medunica;
 
+import java.awt.Toolkit;
+
 
 /**
  *
@@ -16,7 +18,8 @@ public class Registrator extends javax.swing.JFrame {
      * Creates new form Registrator
      */
     public Registrator(){
-        initComponents();    
+        initComponents(); 
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("medunica.jpg")));
     }
 
     /**
@@ -141,7 +144,6 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -402,7 +404,7 @@ public class Registrator extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap())
