@@ -34,12 +34,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblLogin" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="lblPassword" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="textFieldLogin" pref="142" max="32767" attributes="0"/>
-                          <Component id="passwordField" max="32767" attributes="0"/>
+                          <Component id="passworfField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -57,8 +57,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordField" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
+                  <Component id="passworfField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="okBtn" min="-2" max="-2" attributes="0"/>
@@ -83,12 +83,12 @@
         <Property name="text" type="java.lang.String" value="&#x41b;&#x43e;&#x433;&#x438;&#x43d;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x41f;&#x430;&#x440;&#x43e;&#x43b;&#x44c;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordField">
+    <Component class="javax.swing.JPasswordField" name="passworfField">
     </Component>
   </SubComponents>
 </Form>

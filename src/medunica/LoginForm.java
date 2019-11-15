@@ -25,8 +25,8 @@ public class LoginForm extends javax.swing.JFrame {
         okBtn = new javax.swing.JButton();
         textFieldLogin = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
+        lblPassword = new javax.swing.JLabel();
+        passworfField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("МЕДУНИЦА");
@@ -41,7 +41,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         lblLogin.setText("Логин");
 
-        jLabel2.setText("Пароль");
+        lblPassword.setText("Пароль");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,11 +54,11 @@ public class LoginForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textFieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(passwordField))))
+                            .addComponent(passworfField))))
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
@@ -70,8 +70,8 @@ public class LoginForm extends javax.swing.JFrame {
                     .addComponent(lblLogin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPassword)
+                    .addComponent(passworfField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(okBtn)
                 .addContainerGap())
@@ -83,7 +83,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
         System.out.println(textFieldLogin.getText());
-        System.out.println(passwordField.getPassword());
+        System.out.println(passworfField.getPassword());
         
         Registrator registrator = new Registrator();
         registrator.setVisible(true);
@@ -127,10 +127,10 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JButton okBtn;
-    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JPasswordField passworfField;
     private javax.swing.JTextField textFieldLogin;
     // End of variables declaration//GEN-END:variables
 }
