@@ -23,7 +23,7 @@ public class Registrator extends javax.swing.JFrame {
     public Registrator(){
         initComponents(); 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("medunica.jpg")));
-        db = new DataBase("jdbc:mysql://localhost/medunica?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
+        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
     }
 
     /**
@@ -430,16 +430,27 @@ public class Registrator extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Кнопка записи заполненных данных в БД
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-        // TODO add your handling code here:
-        
+        Component frame = null;
         if(textFieldFamily.getText().equals("") || textFieldName.getText().equals("") || textFieldDataBirth.getText().equals("") || 
                 textFieldSnils.getText().equals("") || textFieldPasportSeries.getText().equals("") || textFieldPasportNumber.getText().equals("") ||
                 textFieldIssuedBy.getText().equals("") || textFieldDateOfIssue.getText().equals("")){
-            Component frame = null;
             JOptionPane.showMessageDialog(frame,"Необходимо заполнить все поля","ВНИМАНИЕ",JOptionPane.WARNING_MESSAGE);
-        } else{
-            System.out.println("Отправка данных в БД");
+        } else{    
+            if(db.sendInsert("INSERT INTO medunica.clients (family, name, patronomic, date_birth, snils, gender, pasport_series, pasport_number, issued_by, date_of_issue, residence_address,"
+                + " permanent_registration, disability_group, cause_of_disability, disability_date, primary_violations, rehabilitation_facilities, place_of_work, welfare_level, "
+                + " education, marital_status)"
+                + " VALUES('"+textFieldFamily.getText()+"', '"+textFieldName.getText()+"', '"+textFieldPatron.getText()+"', '"+textFieldDataBirth.getText()+"', '"+textFieldSnils.getText()+"', 'пол',"
+                + " '"+textFieldPasportSeries.getText()+"', '"+textFieldPasportNumber.getText()+"', '"+textFieldIssuedBy.getText()+"', '"+textFieldDateOfIssue.getText()+"',"
+                + " '"+textFieldResidenceAddress.getText()+"', '"+textFieldPermanentRegistration.getText()+"', 'группа инвалидности', '"+textFieldCauseOfDisability.getText()+"',"
+                + " '"+textFieldDisabilityDate.getText()+"', 'преимущественные нарушения', 'Используемые тех средства реабилитации', '"+textFieldPlaceOfWork.getText()+"', "
+                + "'Уровень благосостояния', 'Образование', 'Семейное положение')")){
+                JOptionPane.showMessageDialog(frame,"Данные успешно добавлены","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
+                clearTexField();
+            } else {
+                JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
+            }
         }
         
     }//GEN-LAST:event_btnOkActionPerformed
@@ -454,6 +465,14 @@ public class Registrator extends javax.swing.JFrame {
         radioButtonGenderM.setSelected(false);
     }//GEN-LAST:event_radioButtonGenderGActionPerformed
 
+    // Очистка полей ввода данных
+    private void clearTexField(){
+        textFieldFamily.setText(""); textFieldName.setText(""); textFieldPatron.setText(""); textFieldDataBirth.setText(""); textFieldSnils.setText("");
+        textFieldPasportSeries.setText(""); textFieldPasportNumber.setText(""); textFieldIssuedBy.setText(""); textFieldDateOfIssue.setText("");
+        textFieldResidenceAddress.setText(""); textFieldPermanentRegistration.setText(""); textFieldIpr.setText(""); textFieldIprData.setText("");
+        textFieldTelephone.setText(""); textFieldEmail.setText(""); textFieldCauseOfDisability.setText(""); textFieldDisabilityDate.setText(""); textFieldPlaceOfWork.setText("");
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;

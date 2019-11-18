@@ -62,11 +62,10 @@ public class DataBase {
     public boolean sendInsert(String query){
             try {
                 Statement stmt = conn.createStatement();
-                return stmt.execute(query);
+                stmt.execute(query);
+                return true;
             } catch (SQLException ex) {
                 System.err.println("Ошибка запроса к БД");
-                Component frame = null;
-                JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
                 return false;
             }
     }
