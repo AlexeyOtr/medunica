@@ -331,11 +331,11 @@ public class Registrator extends javax.swing.JFrame {
                                     .addComponent(lblIssuedBy)
                                     .addComponent(textFieldIssuedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(62, 62, 62)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(28, 28, 28)
                         .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIpr)
                             .addComponent(textFieldIpr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIprData, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(formattedTextFieldIprData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -503,27 +503,37 @@ public class Registrator extends javax.swing.JFrame {
     // Кнопка записи заполненных данных в БД
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         Component frame = null;
-        if(textFieldFamily.getText().equals("") || textFieldName.getText().equals("") || formattedTextFieldDateBirth.getText().equals("") || 
-                formattedTextFieldSnils.getText().equals("") || formattedTextFieldPasportSeries.getText().equals("") || formattedTextFieldPasportNumber.getText().equals("") ||
-                textFieldIssuedBy.getText().equals("") || formattedTextFieldDateOfIssue.getText().equals("")){
-            JOptionPane.showMessageDialog(frame,"Необходимо заполнить все поля","ВНИМАНИЕ",JOptionPane.WARNING_MESSAGE);
-        } else{    
-            if(db.sendInsert("INSERT INTO medunica.clients (family, name, patronomic, date_birth, snils, gender, ipr, ipr_date, telephone, email, pasport_series, pasport_number, issued_by, date_of_issue, residence_address,"
-                + " permanent_registration, disability_group, cause_of_disability, disability_date, primary_violations, rehabilitation_facilities, place_of_work, welfare_level, "
-                + " education, marital_status)"
-                + " VALUES('"+textFieldFamily.getText()+"', '"+textFieldName.getText()+"', '"+textFieldPatron.getText()+"', '"+formattedTextFieldDateBirth.getText()+"', '"+formattedTextFieldSnils.getText()+"', 'пол',"
-                + " 'ИПР', 'Дата ИПР' , 'Телефон', 'Почта',"
-                + " '"+formattedTextFieldPasportSeries.getText()+"', '"+formattedTextFieldPasportNumber.getText()+"', '"+textFieldIssuedBy.getText()+"', '"+formattedTextFieldDateOfIssue.getText()+"',"
-                + " '"+textFieldResidenceAddress.getText()+"', '"+textFieldPermanentRegistration.getText()+"', 'группа инвалидности', '"+textFieldCauseOfDisability.getText()+"',"
-                + " '"+formattedTextFieldDisabilityDate.getText()+"', 'преимущественные нарушения', 'Используемые тех средства реабилитации', '"+textFieldPlaceOfWork.getText()+"', "
-                + "'Уровень благосостояния', 'Образование', 'Семейное положение')")){
-                JOptionPane.showMessageDialog(frame,"Данные успешно добавлены","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
-                clearTexField();
-            } else {
-                JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
-            }
+        String gender = "пол";
+        if(radioButtonGenderM.isSelected()){
+            gender = "мужской";
         }
-        
+        if(radioButtonGenderG.isSelected()){
+            gender = "женский";
+        }
+        if(formattedTextFieldSnils.isEditValid()){
+            if(textFieldFamily.getText().equals("") || textFieldName.getText().equals("") || formattedTextFieldDateBirth.getText().equals("") || 
+                    formattedTextFieldPasportSeries.getText().equals("") || formattedTextFieldPasportNumber.getText().equals("") ||
+                    textFieldIssuedBy.getText().equals("") || formattedTextFieldDateOfIssue.getText().equals("")){
+                JOptionPane.showMessageDialog(frame,"Необходимо заполнить все поля","ВНИМАНИЕ",JOptionPane.WARNING_MESSAGE);
+            } else{    
+                if(db.sendInsert("INSERT INTO medunica.clients (family, name, patronomic, date_birth, snils, gender, ipr, ipr_date, telephone, email, pasport_series, pasport_number, issued_by, date_of_issue, residence_address,"
+                    + " permanent_registration, disability_group, cause_of_disability, disability_date, primary_violations, rehabilitation_facilities, place_of_work, welfare_level, "
+                    + " education, marital_status)"
+                    + " VALUES('"+textFieldFamily.getText()+"', '"+textFieldName.getText()+"', '"+textFieldPatron.getText()+"', '"+formattedTextFieldDateBirth.getText()+"', '"+formattedTextFieldSnils.getText()+"', '"+gender+"',"
+                    + " '"+textFieldIpr.getText()+"', '"+formattedTextFieldIprData.getText()+"' , '"+formattedTextFieldTelephone.getText()+"', '"+formattedTextFieldEmail.getText()+"',"
+                    + " '"+formattedTextFieldPasportSeries.getText()+"', '"+formattedTextFieldPasportNumber.getText()+"', '"+textFieldIssuedBy.getText()+"', '"+formattedTextFieldDateOfIssue.getText()+"',"
+                    + " '"+textFieldResidenceAddress.getText()+"', '"+textFieldPermanentRegistration.getText()+"', '"+comboBoxDisabilityGroup.getSelectedItem()+"', '"+textFieldCauseOfDisability.getText()+"',"
+                    + " '"+formattedTextFieldDisabilityDate.getText()+"', '"+comboBoxPrimaryViolations.getSelectedItem()+"', '"+comboBoxRehabilitationFacilities.getSelectedItem()+"', '"+textFieldPlaceOfWork.getText()+"', "
+                    + " '"+comboBoxWelfareLavel.getSelectedItem()+"', '"+comboBoxEducation.getSelectedItem()+"', '"+comboBoxMaritalStatus.getSelectedItem()+"')")){
+                    JOptionPane.showMessageDialog(frame,"Данные успешно добавлены","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
+                    clearTexField();
+                } else {
+                    JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(frame,"Необходимо ввести СНИЛС","ОШИБКА",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void radioButtonGenderMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonGenderMActionPerformed
