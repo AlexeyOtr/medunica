@@ -25,7 +25,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="1" attributes="0">
           <Component id="tabbedPaneRegistrator" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnOk" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -65,82 +65,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jSeparator2" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jSeparator2" min="-2" pref="1007" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblGender" max="32767" attributes="0"/>
-                                  <Component id="lblName" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblPatron" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblDataBirth" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblFamily" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblSnils" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="radioButtonGenderM" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="radioButtonGenderG" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="textFieldName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="textFieldFamily" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="textFieldPatron" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="formattedTextFieldDateBirth" max="32767" attributes="0"/>
-                                  <Component id="formattedTextFieldSnils" alignment="0" pref="148" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblEmail" min="-2" pref="81" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldEmail" min="-2" pref="134" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblPasportSeries" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldPasportSeries" min="-2" pref="134" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblPasportNumber" max="32767" attributes="0"/>
-                                          <Component id="lblDateOfIssue" max="32767" attributes="0"/>
-                                          <Component id="lblTelephone" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="formattedTextFieldPasportNumber" max="32767" attributes="0"/>
-                                          <Component id="formattedTextFieldDateOfIssue" max="32767" attributes="0"/>
-                                          <Component id="formattedTextFieldTelephone" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jSeparator3" min="-2" pref="18" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblIssuedBy" max="32767" attributes="0"/>
-                                      <Component id="lblPermanentRegistration" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblResidenceAddress" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                      <Component id="lblIpr" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblIprData" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="textFieldPermanentRegistration" max="32767" attributes="0"/>
-                                      <Component id="textFieldResidenceAddress" max="32767" attributes="0"/>
-                                      <Component id="textFieldIssuedBy" alignment="0" min="-2" pref="277" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="formattedTextFieldIprData" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="textFieldIpr" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -152,286 +84,403 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblFamily" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textFieldFamily" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textFieldName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblPatron" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textFieldPatron" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblDataBirth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldDateBirth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblSnils" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldSnils" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="radioButtonGenderG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="radioButtonGenderM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="lblGender" min="-2" pref="23" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblPasportSeries" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldPasportSeries" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblPasportNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldPasportNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblDateOfIssue" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldDateOfIssue" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblTelephone" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldTelephone" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="formattedTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jSeparator1" alignment="0" pref="185" max="32767" attributes="0"/>
-                              <Component id="jSeparator3" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblResidenceAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="textFieldResidenceAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblPermanentRegistration" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="textFieldPermanentRegistration" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblIssuedBy" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="textFieldIssuedBy" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblIpr" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldIpr" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblIprData" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="formattedTextFieldIprData" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jSeparator2" min="-2" pref="7" max="-2" attributes="0"/>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblPasportSeries">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x421;&#x435;&#x440;&#x438;&#x44f; &#x43f;&#x430;&#x441;&#x43f;&#x43e;&#x440;&#x442;&#x430;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblPasportNumber">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41d;&#x43e;&#x43c;&#x435;&#x440; &#x43f;&#x430;&#x441;&#x43f;&#x43e;&#x440;&#x442;&#x430;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldPermanentRegistration">
-            </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparator1">
-              <Properties>
-                <Property name="orientation" type="int" value="1"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblDateOfIssue">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430; &#x432;&#x44b;&#x434;&#x430;&#x447;&#x438;"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblTelephone">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x422;&#x435;&#x43b;&#x435;&#x444;&#x43e;&#x43d;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblEmail">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x42d;&#x43b;.&#x43f;&#x43e;&#x447;&#x442;&#x430;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblGender">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41f;&#x43e;&#x43b;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="radioButtonGenderM">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41c;"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonGenderMActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="radioButtonGenderG">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x416;"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonGenderGActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblResidenceAddress">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x410;&#x434;&#x440;&#x435;&#x441; &#x43c;&#x435;&#x441;&#x442;&#x430; &#x436;&#x438;&#x442;&#x435;&#x43b;&#x44c;&#x441;&#x442;&#x432;&#x430;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblFamily">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x424;&#x430;&#x43c;&#x438;&#x43b;&#x438;&#x44f;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x418;&#x43c;&#x44f;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblPermanentRegistration">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41c;&#x435;&#x441;&#x442;&#x43e; &#x43f;&#x43e;&#x441;&#x442;&#x43e;&#x44f;&#x43d;&#x43d;&#x43e;&#x439; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblPatron">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41e;&#x442;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldResidenceAddress">
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldFamily">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblIpr">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x418;&#x41f;&#x420;/&#x418;&#x41f;&#x420;&#x410;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldName">
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldIpr">
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldPatron">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblIprData">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43e;&#x442;&#x43a;&#x438; &#x418;&#x41f;&#x420;/&#x418;&#x41f;&#x420;&#x410;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblDataBirth">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430;&#x420;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x44f;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblSnils">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x421;&#x41d;&#x418;&#x41b;&#x421;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldSnils">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="###-###-###-##" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldPasportSeries">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="##-##" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldPasportNumber">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="###-###" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblIssuedBy">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41a;&#x435;&#x43c; &#x432;&#x44b;&#x434;&#x430;&#x43d;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldDateOfIssue">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="##.##.####" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldIssuedBy">
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldTelephone">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="+7(###)###-##-##" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldIprData">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="##.##.####" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparator3">
-              <Properties>
-                <Property name="orientation" type="int" value="1"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldEmail">
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldDateBirth">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="##.##.####" subtype="-1" type="5"/>
-                </Property>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblGender" max="32767" attributes="0"/>
+                              <Component id="lblName" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblPatron" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblDataBirth" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblFamily" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblSnils" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="radioButtonGenderM" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="radioButtonGenderG" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="textFieldName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textFieldFamily" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textFieldPatron" alignment="0" max="32767" attributes="0"/>
+                              <Component id="formattedTextFieldDateBirth" max="32767" attributes="0"/>
+                              <Component id="formattedTextFieldSnils" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblFamily" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldFamily" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblPatron" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldPatron" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDataBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldDateBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblSnils" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldSnils" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="radioButtonGenderG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radioButtonGenderM" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblGender" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblFamily">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x424;&#x430;&#x43c;&#x438;&#x43b;&#x438;&#x44f;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldFamily">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x418;&#x43c;&#x44f;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldName">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblPatron">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41e;&#x442;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldPatron">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDataBirth">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430;&#x420;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x44f;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldDateBirth">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="##.##.####" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblSnils">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x421;&#x41d;&#x418;&#x41b;&#x421;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldSnils">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="###-###-###-##" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblGender">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41f;&#x43e;&#x43b;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="radioButtonGenderM">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41c;"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonGenderMActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="radioButtonGenderG">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x416;"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonGenderGActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblEmail" min="-2" pref="81" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldEmail" min="-2" pref="134" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblPasportSeries" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldPasportSeries" min="-2" pref="134" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblPasportNumber" max="32767" attributes="0"/>
+                                      <Component id="lblDateOfIssue" max="32767" attributes="0"/>
+                                      <Component id="lblTelephone" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="formattedTextFieldPasportNumber" max="32767" attributes="0"/>
+                                      <Component id="formattedTextFieldDateOfIssue" max="32767" attributes="0"/>
+                                      <Component id="formattedTextFieldTelephone" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblPasportSeries" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldPasportSeries" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblPasportNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldPasportNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblDateOfIssue" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldDateOfIssue" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTelephone" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldTelephone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblPasportSeries">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x421;&#x435;&#x440;&#x438;&#x44f; &#x43f;&#x430;&#x441;&#x43f;&#x43e;&#x440;&#x442;&#x430;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldPasportSeries">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="##-##" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldPasportNumber">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="###-###" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblPasportNumber">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x43e;&#x43c;&#x435;&#x440; &#x43f;&#x430;&#x441;&#x43f;&#x43e;&#x440;&#x442;&#x430;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblDateOfIssue">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430; &#x432;&#x44b;&#x434;&#x430;&#x447;&#x438;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldDateOfIssue">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="##.##.####" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTelephone">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x422;&#x435;&#x43b;&#x435;&#x444;&#x43e;&#x43d;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldTelephone">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="+7(###)###-##-##" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEmail">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x42d;&#x43b;.&#x43f;&#x43e;&#x447;&#x442;&#x430;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldEmail">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblIssuedBy" max="32767" attributes="0"/>
+                                  <Component id="lblPermanentRegistration" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblResidenceAddress" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="lblIpr" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblIprData" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textFieldPermanentRegistration" max="32767" attributes="0"/>
+                                  <Component id="textFieldResidenceAddress" max="32767" attributes="0"/>
+                                  <Component id="textFieldIssuedBy" alignment="0" min="-2" pref="277" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="formattedTextFieldIprData" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textFieldIpr" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblResidenceAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textFieldResidenceAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblPermanentRegistration" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="textFieldPermanentRegistration" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblIssuedBy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textFieldIssuedBy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblIpr" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldIpr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblIprData" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="formattedTextFieldIprData" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblIssuedBy">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41a;&#x435;&#x43c; &#x432;&#x44b;&#x434;&#x430;&#x43d;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldIssuedBy">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblResidenceAddress">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x410;&#x434;&#x440;&#x435;&#x441; &#x43c;&#x435;&#x441;&#x442;&#x430; &#x436;&#x438;&#x442;&#x435;&#x43b;&#x44c;&#x441;&#x442;&#x432;&#x430;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldResidenceAddress">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblPermanentRegistration">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41c;&#x435;&#x441;&#x442;&#x43e; &#x43f;&#x43e;&#x441;&#x442;&#x43e;&#x44f;&#x43d;&#x43d;&#x43e;&#x439; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldPermanentRegistration">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblIpr">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x418;&#x41f;&#x420;/&#x418;&#x41f;&#x420;&#x410;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textFieldIpr">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblIprData">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x414;&#x430;&#x442;&#x430; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43e;&#x442;&#x43a;&#x438; &#x418;&#x41f;&#x420;/&#x418;&#x41f;&#x420;&#x410;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldIprData">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="##.##.####" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panelSocialCharacteristic">
@@ -487,61 +536,66 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblDisabilityGroup" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxDisabilityGroup" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblCauseOfDisability" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldCauseOfDisability" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblDisabilityDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="formattedTextFieldDisabilityDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPrimaryViolations" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxPrimaryViolations" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="comboBoxRehabilitationFacilities" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRehabilitationFacilities" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="comboBoxWelfareLavel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWelfareLavel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="comboBoxEducation" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="comboBoxMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDisabilityGroup" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboBoxDisabilityGroup" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblCauseOfDisability" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textFieldCauseOfDisability" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblDisabilityDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldDisabilityDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblPrimaryViolations" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboBoxPrimaryViolations" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="comboBoxRehabilitationFacilities" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRehabilitationFacilities" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="lblEducation" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="comboBoxWelfareLavel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblWelfareLavel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="comboBoxEducation" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="comboBoxMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="lblEducation" min="-2" pref="20" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textFieldPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textFieldPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="0" pref="64" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jSeparator4" max="32767" attributes="0"/>
+                          <Component id="jSeparator4" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
