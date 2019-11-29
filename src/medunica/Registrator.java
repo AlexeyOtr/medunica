@@ -7,6 +7,11 @@ package medunica;
 
 import java.awt.Component;
 import java.awt.Toolkit;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 
@@ -23,7 +28,7 @@ public class Registrator extends javax.swing.JFrame {
     public Registrator(){
         initComponents(); 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("medunica.jpg")));
-        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234");
+        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
     }
 
     /**
@@ -35,6 +40,7 @@ public class Registrator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dateChooserDialogReceiptDate = new datechooser.beans.DateChooserDialog();
         tabbedPaneRegistrator = new javax.swing.JTabbedPane();
         panelGeneralInformation = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -56,6 +62,7 @@ public class Registrator extends javax.swing.JFrame {
         formattedTextFieldReceiptDate = new javax.swing.JFormattedTextField();
         lblDischargeDate = new javax.swing.JLabel();
         formattedTextFieldDischargeDate = new javax.swing.JFormattedTextField();
+        btnReceiptDateCalendar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblPasportSeries = new javax.swing.JLabel();
         formattedTextFieldPasportSeries = new javax.swing.JFormattedTextField();
@@ -159,6 +166,13 @@ public class Registrator extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btnReceiptDateCalendar.setText("jButton1");
+        btnReceiptDateCalendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReceiptDateCalendarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -189,6 +203,8 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addComponent(formattedTextFieldReceiptDate)
                     .addComponent(formattedTextFieldDischargeDate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -223,7 +239,8 @@ public class Registrator extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblReceiptDate)
-                    .addComponent(formattedTextFieldReceiptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formattedTextFieldReceiptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReceiptDateCalendar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDischargeDate)
@@ -406,11 +423,10 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(jSeparator2)
                     .addGroup(panelGeneralInformationLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panelGeneralInformationLayout.setVerticalGroup(
@@ -420,7 +436,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -500,7 +516,7 @@ public class Registrator extends javax.swing.JFrame {
                         .addComponent(comboBoxEducation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(333, Short.MAX_VALUE))
         );
         panelSocialCharacteristicLayout.setVerticalGroup(
             panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,6 +647,15 @@ public class Registrator extends javax.swing.JFrame {
         radioButtonGenderM.setSelected(false);
     }//GEN-LAST:event_radioButtonGenderGActionPerformed
 
+    private void btnReceiptDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiptDateCalendarActionPerformed
+        // TODO add your handling code here:
+        dateChooserDialogReceiptDate.showDialog(this);
+        //System.out.println(dateChooserDialogReceiptDate.getCurrent().getTime());
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
+        formattedTextFieldReceiptDate.setText(dateFormat.format(cal.getTime()));
+    }//GEN-LAST:event_btnReceiptDateCalendarActionPerformed
+
     // Очистка полей ввода данных
     private void clearTexField(){
         textFieldFamily.setText(""); textFieldName.setText(""); textFieldPatron.setText(""); formattedTextFieldDateBirth.setText(""); formattedTextFieldSnils.setText("");
@@ -642,6 +667,7 @@ public class Registrator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
+    private javax.swing.JButton btnReceiptDateCalendar;
     private javax.swing.JComboBox<String> comboBoxDisabilityGroup;
     private javax.swing.JComboBox<String> comboBoxEducation;
     private javax.swing.JComboBox<String> comboBoxMaritalStatus;
@@ -649,6 +675,7 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxRehabilitationFacilities;
     private javax.swing.JComboBox<String> comboBoxServiceForm;
     private javax.swing.JComboBox<String> comboBoxWelfareLavel;
+    private datechooser.beans.DateChooserDialog dateChooserDialogReceiptDate;
     private javax.swing.JFormattedTextField formattedTextFieldDateBirth;
     private javax.swing.JFormattedTextField formattedTextFieldDateOfIssue;
     private javax.swing.JFormattedTextField formattedTextFieldDisabilityDate;
