@@ -26,11 +26,16 @@ public class Registrator extends javax.swing.JFrame {
      */
     public Registrator(){
         initComponents(); 
+        
+        // подключение к базе
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("medunica.jpg")));
         db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        
+        // установка текущей даты в графу "Дата поступления"
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Calendar cal = Calendar.getInstance();
-        System.out.println(dateFormat.format(cal.getTime()));
+        formattedTextFieldReceiptDate.setText(dateFormat.format(cal.getTime()));
+        
     }
 
     /**
@@ -65,6 +70,8 @@ public class Registrator extends javax.swing.JFrame {
         lblDischargeDate = new javax.swing.JLabel();
         formattedTextFieldDischargeDate = new javax.swing.JFormattedTextField();
         btnReceiptDateCalendar = new javax.swing.JButton();
+        btnDataBirthCalendar = new javax.swing.JButton();
+        btnDischargeDateCalendar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblPasportSeries = new javax.swing.JLabel();
         formattedTextFieldPasportSeries = new javax.swing.JFormattedTextField();
@@ -76,6 +83,7 @@ public class Registrator extends javax.swing.JFrame {
         formattedTextFieldTelephone = new javax.swing.JFormattedTextField();
         lblEmail = new javax.swing.JLabel();
         formattedTextFieldEmail = new javax.swing.JFormattedTextField();
+        btnDateOfIssueCalendar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblIssuedBy = new javax.swing.JLabel();
         textFieldIssuedBy = new javax.swing.JTextField();
@@ -89,26 +97,30 @@ public class Registrator extends javax.swing.JFrame {
         formattedTextFieldIprData = new javax.swing.JFormattedTextField();
         lblServiseForm = new javax.swing.JLabel();
         comboBoxServiceForm = new javax.swing.JComboBox<>();
+        btnIprDateCalendar = new javax.swing.JButton();
         panelSocialCharacteristic = new javax.swing.JPanel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
         lblDisabilityGroup = new javax.swing.JLabel();
-        lblCauseOfDisability = new javax.swing.JLabel();
-        lblDisabilityDate = new javax.swing.JLabel();
-        lblPrimaryViolations = new javax.swing.JLabel();
         comboBoxDisabilityGroup = new javax.swing.JComboBox<>();
+        lblCauseOfDisability = new javax.swing.JLabel();
+        textFieldCauseOfDisability = new javax.swing.JTextField();
+        lblDisabilityDate = new javax.swing.JLabel();
+        formattedTextFieldDisabilityDate = new javax.swing.JFormattedTextField();
+        btnDisabilityDateCalendar = new javax.swing.JButton();
+        lblPrimaryViolations = new javax.swing.JLabel();
+        comboBoxPrimaryViolations = new javax.swing.JComboBox<>();
         lblRehabilitationFacilities = new javax.swing.JLabel();
-        lblPlaceOfWork = new javax.swing.JLabel();
+        comboBoxRehabilitationFacilities = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
         lblWelfareLavel = new javax.swing.JLabel();
         lblEducation = new javax.swing.JLabel();
         lblMaritalStatus = new javax.swing.JLabel();
-        textFieldCauseOfDisability = new javax.swing.JTextField();
-        comboBoxRehabilitationFacilities = new javax.swing.JComboBox<>();
-        textFieldPlaceOfWork = new javax.swing.JTextField();
+        lblPlaceOfWork = new javax.swing.JLabel();
         comboBoxWelfareLavel = new javax.swing.JComboBox<>();
         comboBoxEducation = new javax.swing.JComboBox<>();
         comboBoxMaritalStatus = new javax.swing.JComboBox<>();
-        comboBoxPrimaryViolations = new javax.swing.JComboBox<>();
-        jSeparator4 = new javax.swing.JSeparator();
-        formattedTextFieldDisabilityDate = new javax.swing.JFormattedTextField();
+        textFieldPlaceOfWork = new javax.swing.JTextField();
         btnOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -168,10 +180,24 @@ public class Registrator extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        btnReceiptDateCalendar.setText("jButton1");
+        btnReceiptDateCalendar.setText("...");
         btnReceiptDateCalendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReceiptDateCalendarActionPerformed(evt);
+            }
+        });
+
+        btnDataBirthCalendar.setText("...");
+        btnDataBirthCalendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDataBirthCalendarActionPerformed(evt);
+            }
+        });
+
+        btnDischargeDateCalendar.setText("...");
+        btnDischargeDateCalendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDischargeDateCalendarActionPerformed(evt);
             }
         });
 
@@ -201,12 +227,19 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(textFieldName)
                     .addComponent(textFieldFamily)
                     .addComponent(textFieldPatron)
-                    .addComponent(formattedTextFieldDateBirth)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(formattedTextFieldDateBirth)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDataBirthCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                    .addComponent(formattedTextFieldReceiptDate)
-                    .addComponent(formattedTextFieldDischargeDate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(formattedTextFieldReceiptDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(formattedTextFieldDischargeDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDischargeDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -227,7 +260,8 @@ public class Registrator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataBirth)
-                    .addComponent(formattedTextFieldDateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formattedTextFieldDateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDataBirthCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSnils)
@@ -242,11 +276,12 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblReceiptDate)
                     .addComponent(formattedTextFieldReceiptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReceiptDateCalendar))
+                    .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDischargeDate)
-                    .addComponent(formattedTextFieldDischargeDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formattedTextFieldDischargeDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDischargeDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -284,6 +319,13 @@ public class Registrator extends javax.swing.JFrame {
 
         lblEmail.setText("Эл.почта");
 
+        btnDateOfIssueCalendar.setText("...");
+        btnDateOfIssueCalendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDateOfIssueCalendarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -307,7 +349,10 @@ public class Registrator extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(formattedTextFieldPasportNumber)
-                            .addComponent(formattedTextFieldDateOfIssue)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(formattedTextFieldDateOfIssue)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDateOfIssueCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(formattedTextFieldTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -325,7 +370,8 @@ public class Registrator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDateOfIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(formattedTextFieldDateOfIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formattedTextFieldDateOfIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDateOfIssueCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -357,6 +403,13 @@ public class Registrator extends javax.swing.JFrame {
 
         comboBoxServiceForm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "стационар", "полустационар" }));
 
+        btnIprDateCalendar.setText("...");
+        btnIprDateCalendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIprDateCalendarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -378,7 +431,10 @@ public class Registrator extends javax.swing.JFrame {
                         .addComponent(textFieldIssuedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(comboBoxServiceForm, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(formattedTextFieldIprData, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(formattedTextFieldIprData)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnIprDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(textFieldIpr, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -407,12 +463,13 @@ public class Registrator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIprData, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(formattedTextFieldIprData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formattedTextFieldIprData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIprDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblServiseForm)
                     .addComponent(comboBoxServiceForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelGeneralInformationLayout = new javax.swing.GroupLayout(panelGeneralInformation);
@@ -425,10 +482,11 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(jSeparator2)
                     .addGroup(panelGeneralInformationLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelGeneralInformationLayout.setVerticalGroup(
@@ -437,8 +495,8 @@ public class Registrator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -446,37 +504,15 @@ public class Registrator extends javax.swing.JFrame {
 
         tabbedPaneRegistrator.addTab("Общие данные", panelGeneralInformation);
 
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         lblDisabilityGroup.setText("Группа инвалидности");
+
+        comboBoxDisabilityGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "нет", "1", "2", "3" }));
 
         lblCauseOfDisability.setText("Причина инвалидности");
 
         lblDisabilityDate.setText("Дата установки инвалидности");
-
-        lblPrimaryViolations.setText("Преимущественные нарушения");
-
-        comboBoxDisabilityGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "нет", "1", "2", "3" }));
-
-        lblRehabilitationFacilities.setText("Используемые тех средства реабилитации");
-
-        lblPlaceOfWork.setText("Место работы");
-
-        lblWelfareLavel.setText("Уровень благосостояния");
-
-        lblEducation.setText("Образование");
-
-        lblMaritalStatus.setText("Семейное положение");
-
-        comboBoxRehabilitationFacilities.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "другое", "коляска", "костыли", "трость" }));
-
-        comboBoxWelfareLavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "высокий", "средний", "ниже среднего", "низкий" }));
-
-        comboBoxEducation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "высшее", "среднее", "школьное", "нет" }));
-
-        comboBoxMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "семейный/ая", "одинокий/ая", "на иждевении", "другое" }));
-
-        comboBoxPrimaryViolations.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         try {
             formattedTextFieldDisabilityDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##.####")));
@@ -484,41 +520,141 @@ public class Registrator extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btnDisabilityDateCalendar.setText("...");
+        btnDisabilityDateCalendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisabilityDateCalendarActionPerformed(evt);
+            }
+        });
+
+        lblPrimaryViolations.setText("Преимущественные нарушения");
+
+        comboBoxPrimaryViolations.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "прочее", "в/конечностей", "н/конечностей", "слуха", "зренеия", "психики" }));
+
+        lblRehabilitationFacilities.setText("Используемые тех средства реабилитации");
+
+        comboBoxRehabilitationFacilities.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "другое", "коляска", "костыли", "трость" }));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblDisabilityGroup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRehabilitationFacilities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCauseOfDisability, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDisabilityDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPrimaryViolations, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textFieldCauseOfDisability)
+                    .addComponent(comboBoxDisabilityGroup, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboBoxPrimaryViolations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(formattedTextFieldDisabilityDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDisabilityDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxRehabilitationFacilities, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDisabilityGroup)
+                    .addComponent(comboBoxDisabilityGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCauseOfDisability)
+                    .addComponent(textFieldCauseOfDisability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDisabilityDate)
+                    .addComponent(formattedTextFieldDisabilityDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDisabilityDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrimaryViolations)
+                    .addComponent(comboBoxPrimaryViolations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxRehabilitationFacilities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRehabilitationFacilities))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lblWelfareLavel.setText("Уровень благосостояния");
+
+        lblEducation.setText("Образование");
+
+        lblMaritalStatus.setText("Семейное положение");
+
+        lblPlaceOfWork.setText("Место работы");
+
+        comboBoxWelfareLavel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "высокий", "средний", "ниже среднего", "низкий" }));
+
+        comboBoxEducation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "высшее", "среднее", "школьное", "нет" }));
+
+        comboBoxMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "семейный/ая", "одинокий/ая", "на иждевении", "другое" }));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblWelfareLavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblEducation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(comboBoxWelfareLavel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboBoxEducation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxWelfareLavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWelfareLavel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(comboBoxEducation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMaritalStatus)))
+                    .addComponent(lblEducation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPlaceOfWork)
+                    .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelSocialCharacteristicLayout = new javax.swing.GroupLayout(panelSocialCharacteristic);
         panelSocialCharacteristic.setLayout(panelSocialCharacteristicLayout);
         panelSocialCharacteristicLayout.setHorizontalGroup(
             panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblDisabilityGroup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblRehabilitationFacilities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCauseOfDisability, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDisabilityDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPrimaryViolations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textFieldCauseOfDisability)
-                    .addComponent(comboBoxDisabilityGroup, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboBoxPrimaryViolations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(formattedTextFieldDisabilityDate)
-                    .addComponent(comboBoxRehabilitationFacilities, 0, 116, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblWelfareLavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblEducation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(comboBoxWelfareLavel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBoxEducation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         panelSocialCharacteristicLayout.setVerticalGroup(
             panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -526,47 +662,15 @@ public class Registrator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
                         .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator4)
                             .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblDisabilityGroup)
-                                    .addComponent(comboBoxDisabilityGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCauseOfDisability)
-                                    .addComponent(textFieldCauseOfDisability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblDisabilityDate)
-                                    .addComponent(formattedTextFieldDisabilityDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8)
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPrimaryViolations)
-                                    .addComponent(comboBoxPrimaryViolations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(12, 12, 12)
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(comboBoxRehabilitationFacilities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblRehabilitationFacilities)))
-                            .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(comboBoxWelfareLavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblWelfareLavel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
-                                        .addComponent(comboBoxEducation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblMaritalStatus)))
-                                    .addComponent(lblEducation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8)
-                                .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPlaceOfWork)
-                                    .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 127, Short.MAX_VALUE))
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
 
         tabbedPaneRegistrator.addTab("Социальная характеристика", panelSocialCharacteristic);
@@ -582,16 +686,18 @@ public class Registrator extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOk)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOk))
+                    .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnOk)
                 .addContainerGap())
@@ -635,7 +741,7 @@ public class Registrator extends javax.swing.JFrame {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(frame,"Необходимо ввести СНИЛС","ОШИБКА",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(frame,"Необходимо заполнить все поля","ОШИБКА",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnOkActionPerformed
 
@@ -652,11 +758,30 @@ public class Registrator extends javax.swing.JFrame {
     private void btnReceiptDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiptDateCalendarActionPerformed
         // TODO add your handling code here:
         dateChooserDialogReceiptDate.showDialog(this);
-        //System.out.println(dateChooserDialogReceiptDate.getCurrent().getTime());
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
         formattedTextFieldReceiptDate.setText(dateFormat.format(cal.getTime()));
     }//GEN-LAST:event_btnReceiptDateCalendarActionPerformed
+
+    private void btnDataBirthCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataBirthCalendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDataBirthCalendarActionPerformed
+
+    private void btnDischargeDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDischargeDateCalendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDischargeDateCalendarActionPerformed
+
+    private void btnIprDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIprDateCalendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIprDateCalendarActionPerformed
+
+    private void btnDisabilityDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisabilityDateCalendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDisabilityDateCalendarActionPerformed
+
+    private void btnDateOfIssueCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDateOfIssueCalendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDateOfIssueCalendarActionPerformed
 
     // Очистка полей ввода данных
     private void clearTexField(){
@@ -668,6 +793,11 @@ public class Registrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDataBirthCalendar;
+    private javax.swing.JButton btnDateOfIssueCalendar;
+    private javax.swing.JButton btnDisabilityDateCalendar;
+    private javax.swing.JButton btnDischargeDateCalendar;
+    private javax.swing.JButton btnIprDateCalendar;
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnReceiptDateCalendar;
     private javax.swing.JComboBox<String> comboBoxDisabilityGroup;
@@ -692,6 +822,8 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblCauseOfDisability;
