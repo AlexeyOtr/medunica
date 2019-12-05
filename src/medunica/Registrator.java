@@ -13,7 +13,6 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author LEX
@@ -67,11 +66,9 @@ public class Registrator extends javax.swing.JFrame {
         radioButtonGenderG = new javax.swing.JRadioButton();
         lblReceiptDate = new javax.swing.JLabel();
         formattedTextFieldReceiptDate = new javax.swing.JFormattedTextField();
-        lblDischargeDate = new javax.swing.JLabel();
-        formattedTextFieldDischargeDate = new javax.swing.JFormattedTextField();
         btnReceiptDateCalendar = new javax.swing.JButton();
         btnDataBirthCalendar = new javax.swing.JButton();
-        btnDischargeDateCalendar = new javax.swing.JButton();
+        btnDataBirthCalendar1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblPasportSeries = new javax.swing.JLabel();
         formattedTextFieldPasportSeries = new javax.swing.JFormattedTextField();
@@ -122,6 +119,7 @@ public class Registrator extends javax.swing.JFrame {
         comboBoxMaritalStatus = new javax.swing.JComboBox<>();
         textFieldPlaceOfWork = new javax.swing.JTextField();
         btnOk = new javax.swing.JButton();
+        btnDischarge = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("МЕДУНИЦА РЕГИСТРАТОР");
@@ -172,14 +170,6 @@ public class Registrator extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        lblDischargeDate.setText("Дата выписки");
-
-        try {
-            formattedTextFieldDischargeDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##.####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         btnReceiptDateCalendar.setText("...");
         btnReceiptDateCalendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,10 +184,10 @@ public class Registrator extends javax.swing.JFrame {
             }
         });
 
-        btnDischargeDateCalendar.setText("...");
-        btnDischargeDateCalendar.addActionListener(new java.awt.event.ActionListener() {
+        btnDataBirthCalendar1.setText("...");
+        btnDataBirthCalendar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDischargeDateCalendarActionPerformed(evt);
+                btnDataBirthCalendar1ActionPerformed(evt);
             }
         });
 
@@ -208,7 +198,6 @@ public class Registrator extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lblDischargeDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblReceiptDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblPatron, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -219,28 +208,28 @@ public class Registrator extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(radioButtonGenderM)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radioButtonGenderG))
+                        .addComponent(radioButtonGenderG)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(textFieldName)
                     .addComponent(textFieldFamily)
-                    .addComponent(textFieldPatron)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(formattedTextFieldDateBirth)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDataBirthCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDataBirthCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(formattedTextFieldReceiptDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(formattedTextFieldDischargeDate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDischargeDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(textFieldPatron))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +254,8 @@ public class Registrator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSnils)
-                    .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDataBirthCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -277,12 +267,7 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(lblReceiptDate)
                     .addComponent(formattedTextFieldReceiptDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDischargeDate)
-                    .addComponent(formattedTextFieldDischargeDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDischargeDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         lblPasportSeries.setText("Серия паспорта");
@@ -380,7 +365,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(formattedTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         lblIssuedBy.setText("Кем выдан");
@@ -479,25 +464,25 @@ public class Registrator extends javax.swing.JFrame {
             .addGroup(panelGeneralInformationLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2)
                     .addGroup(panelGeneralInformationLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparator2))
                 .addContainerGap())
         );
         panelGeneralInformationLayout.setVerticalGroup(
             panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGeneralInformationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGroup(panelGeneralInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -654,7 +639,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         panelSocialCharacteristicLayout.setVerticalGroup(
             panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -682,24 +667,33 @@ public class Registrator extends javax.swing.JFrame {
             }
         });
 
+        btnDischarge.setText("Выписать");
+        btnDischarge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDischargeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnOk))
-                    .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDischarge)
+                .addGap(129, 129, 129)
+                .addComponent(btnOk)
                 .addContainerGap())
+            .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.Alignment.LEADING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOk)
+                .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOk)
+                    .addComponent(btnDischarge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -711,6 +705,10 @@ public class Registrator extends javax.swing.JFrame {
 
     // Кнопка записи заполненных данных в БД
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Calendar cal = Calendar.getInstance();
+        
         Component frame = null;
         String gender = "пол";
         if(radioButtonGenderM.isSelected()){
@@ -727,13 +725,15 @@ public class Registrator extends javax.swing.JFrame {
             } else{    
                 if(db.sendInsert("INSERT INTO medunica.clients (family, name, patronomic, date_birth, snils, gender, ipr, ipr_date, telephone, email, pasport_series, pasport_number, issued_by, date_of_issue, residence_address,"
                     + " permanent_registration, disability_group, cause_of_disability, disability_date, primary_violations, rehabilitation_facilities, place_of_work, welfare_level, "
-                    + " education, marital_status)"
+                    + " education, marital_status, service_form, receipt_date, entry_date, last_modified_date)"
                     + " VALUES('"+textFieldFamily.getText()+"', '"+textFieldName.getText()+"', '"+textFieldPatron.getText()+"', '"+formattedTextFieldDateBirth.getText()+"', '"+formattedTextFieldSnils.getText()+"', '"+gender+"',"
                     + " '"+textFieldIpr.getText()+"', '"+formattedTextFieldIprData.getText()+"' , '"+formattedTextFieldTelephone.getText()+"', '"+formattedTextFieldEmail.getText()+"',"
                     + " '"+formattedTextFieldPasportSeries.getText()+"', '"+formattedTextFieldPasportNumber.getText()+"', '"+textFieldIssuedBy.getText()+"', '"+formattedTextFieldDateOfIssue.getText()+"',"
                     + " '"+textFieldResidenceAddress.getText()+"', '"+textFieldPermanentRegistration.getText()+"', '"+comboBoxDisabilityGroup.getSelectedItem()+"', '"+textFieldCauseOfDisability.getText()+"',"
                     + " '"+formattedTextFieldDisabilityDate.getText()+"', '"+comboBoxPrimaryViolations.getSelectedItem()+"', '"+comboBoxRehabilitationFacilities.getSelectedItem()+"', '"+textFieldPlaceOfWork.getText()+"', "
-                    + " '"+comboBoxWelfareLavel.getSelectedItem()+"', '"+comboBoxEducation.getSelectedItem()+"', '"+comboBoxMaritalStatus.getSelectedItem()+"')")){
+                    + " '"+comboBoxWelfareLavel.getSelectedItem()+"', '"+comboBoxEducation.getSelectedItem()+"', '"+comboBoxMaritalStatus.getSelectedItem()+"' ,'"+comboBoxServiceForm.getSelectedItem()+"', "
+                    + " '"+formattedTextFieldReceiptDate.getText()+"', '"+dateFormat.format(cal.getTime())+"', "
+                    + " '"+dateFormat.format(cal.getTime())+"')")){
                     JOptionPane.showMessageDialog(frame,"Данные успешно добавлены","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
                     clearTexField();
                 } else {
@@ -746,57 +746,88 @@ public class Registrator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void radioButtonGenderMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonGenderMActionPerformed
-        // TODO add your handling code here:
+        
         radioButtonGenderG.setSelected(false);
     }//GEN-LAST:event_radioButtonGenderMActionPerformed
 
     private void radioButtonGenderGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonGenderGActionPerformed
-        // TODO add your handling code here:
+        
         radioButtonGenderM.setSelected(false);
     }//GEN-LAST:event_radioButtonGenderGActionPerformed
 
+    // Кнопа запуска календаря "Дата поступления"
     private void btnReceiptDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiptDateCalendarActionPerformed
-        // TODO add your handling code here:
         dateChooserDialogReceiptDate.showDialog(this);
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
         formattedTextFieldReceiptDate.setText(dateFormat.format(cal.getTime()));
     }//GEN-LAST:event_btnReceiptDateCalendarActionPerformed
 
+    // Кнопа запуска календаря "Дата рождения"
     private void btnDataBirthCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataBirthCalendarActionPerformed
-        // TODO add your handling code here:
+
+        dateChooserDialogReceiptDate.showDialog(this);
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
+        formattedTextFieldDateBirth.setText(dateFormat.format(cal.getTime()));
     }//GEN-LAST:event_btnDataBirthCalendarActionPerformed
 
-    private void btnDischargeDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDischargeDateCalendarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDischargeDateCalendarActionPerformed
-
+    // Кнопа запуска календаря "Дата разработки ИПР"
     private void btnIprDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIprDateCalendarActionPerformed
-        // TODO add your handling code here:
+        
+        dateChooserDialogReceiptDate.showDialog(this);
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
+        formattedTextFieldIprData.setText(dateFormat.format(cal.getTime()));
     }//GEN-LAST:event_btnIprDateCalendarActionPerformed
 
+    // Кнопа запуска календаря "Дата установки инвалидности"
     private void btnDisabilityDateCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisabilityDateCalendarActionPerformed
-        // TODO add your handling code here:
+        
+        dateChooserDialogReceiptDate.showDialog(this);
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
+        formattedTextFieldDisabilityDate.setText(dateFormat.format(cal.getTime()));
     }//GEN-LAST:event_btnDisabilityDateCalendarActionPerformed
 
+    // Кнопа запуска календаря "Дата выдачи паспорта"
     private void btnDateOfIssueCalendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDateOfIssueCalendarActionPerformed
-        // TODO add your handling code here:
+        
+        dateChooserDialogReceiptDate.showDialog(this);
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
+        formattedTextFieldDateOfIssue.setText(dateFormat.format(cal.getTime()));
     }//GEN-LAST:event_btnDateOfIssueCalendarActionPerformed
+
+    // Кнопа выписки
+    private void btnDischargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDischargeActionPerformed
+
+        dateChooserDialogReceiptDate.showDialog(this);
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
+        dateFormat.format(cal.getTime());
+    }//GEN-LAST:event_btnDischargeActionPerformed
+
+    private void btnDataBirthCalendar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataBirthCalendar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDataBirthCalendar1ActionPerformed
 
     // Очистка полей ввода данных
     private void clearTexField(){
         textFieldFamily.setText(""); textFieldName.setText(""); textFieldPatron.setText(""); formattedTextFieldDateBirth.setText(""); formattedTextFieldSnils.setText("");
         formattedTextFieldPasportSeries.setText(""); formattedTextFieldPasportNumber.setText(""); textFieldIssuedBy.setText(""); formattedTextFieldDateOfIssue.setText("");
         textFieldResidenceAddress.setText(""); textFieldPermanentRegistration.setText(""); textFieldIpr.setText(""); formattedTextFieldIprData.setText("");
-        formattedTextFieldTelephone.setText(""); formattedTextFieldEmail.setText(""); textFieldCauseOfDisability.setText(""); formattedTextFieldDisabilityDate.setText(""); textFieldPlaceOfWork.setText("");
+        formattedTextFieldTelephone.setText(""); formattedTextFieldEmail.setText(""); textFieldCauseOfDisability.setText(""); formattedTextFieldDisabilityDate.setText("");
+        textFieldPlaceOfWork.setText("");
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDataBirthCalendar;
+    private javax.swing.JButton btnDataBirthCalendar1;
     private javax.swing.JButton btnDateOfIssueCalendar;
     private javax.swing.JButton btnDisabilityDateCalendar;
-    private javax.swing.JButton btnDischargeDateCalendar;
+    private javax.swing.JButton btnDischarge;
     private javax.swing.JButton btnIprDateCalendar;
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnReceiptDateCalendar;
@@ -811,7 +842,6 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField formattedTextFieldDateBirth;
     private javax.swing.JFormattedTextField formattedTextFieldDateOfIssue;
     private javax.swing.JFormattedTextField formattedTextFieldDisabilityDate;
-    private javax.swing.JFormattedTextField formattedTextFieldDischargeDate;
     private javax.swing.JFormattedTextField formattedTextFieldEmail;
     private javax.swing.JFormattedTextField formattedTextFieldIprData;
     private javax.swing.JFormattedTextField formattedTextFieldPasportNumber;
@@ -831,7 +861,6 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JLabel lblDateOfIssue;
     private javax.swing.JLabel lblDisabilityDate;
     private javax.swing.JLabel lblDisabilityGroup;
-    private javax.swing.JLabel lblDischargeDate;
     private javax.swing.JLabel lblEducation;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFamily;
