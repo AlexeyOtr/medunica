@@ -120,6 +120,45 @@ public class Registrator extends javax.swing.JFrame {
         comboBoxEducation = new javax.swing.JComboBox<>();
         comboBoxMaritalStatus = new javax.swing.JComboBox<>();
         textFieldPlaceOfWork = new javax.swing.JTextField();
+        lblNamberOfFamily = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jPanel6 = new javax.swing.JPanel();
+        lblNumberFamilyMembers = new javax.swing.JLabel();
+        spinnerNumberMinorChildren = new javax.swing.JSpinner();
+        lblRecipientIncome12Months = new javax.swing.JLabel();
+        formattedTextFieldRecipientIncome12Months = new javax.swing.JFormattedTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        lblSpousesIncome12Months = new javax.swing.JLabel();
+        formattedTextFieldIncomeMotherFather = new javax.swing.JFormattedTextField();
+        comboBoxSpousesIncome12Months = new javax.swing.JComboBox<>();
+        formattedTextFieldSpousesIncome12Months1 = new javax.swing.JFormattedTextField();
+        lblIncomeMotherFather = new javax.swing.JLabel();
+        formattedTextFieldRecipientsPerCapitaIncome = new javax.swing.JFormattedTextField();
+        comboBoxIncomeMotherFather = new javax.swing.JComboBox<>();
+        formattedTextFieldAverageRevenue = new javax.swing.JFormattedTextField();
+        lblAmountIncomeAllFamily = new javax.swing.JLabel();
+        formattedTextFieldSpousesIncome12Months = new javax.swing.JFormattedTextField();
+        lblNumberMinorChildren = new javax.swing.JLabel();
+        spinnerNumberFamilyMembers = new javax.swing.JSpinner();
+        lblAverageRevenue = new javax.swing.JLabel();
+        formattedTextFieldIncomeMotherFather1 = new javax.swing.JFormattedTextField();
+        lblRecipientsPerCapitaIncome = new javax.swing.JLabel();
+        formattedTextFieldAmountIncomeAllFamily = new javax.swing.JFormattedTextField();
+        lbl75pRecipientIncome = new javax.swing.JLabel();
+        formattedTextField75pRecipientIncome = new javax.swing.JFormattedTextField();
+        lblCapPerCapitaIncome = new javax.swing.JLabel();
+        formattedTextFieldCapPerCapitaIncome = new javax.swing.JFormattedTextField();
+        lblDifferencePerCapitaIncome = new javax.swing.JLabel();
+        formattedTextFieldDifferencePerCapitaIncome = new javax.swing.JFormattedTextField();
+        formattedTextFieldActualNumberDays = new javax.swing.JFormattedTextField();
+        formattedTextFieldNumberDaysMonth = new javax.swing.JFormattedTextField();
+        lblNumberDaysMonth = new javax.swing.JLabel();
+        lblActualNumberDays = new javax.swing.JLabel();
+        formattedTextFieldActualContractAmount = new javax.swing.JFormattedTextField();
+        formattedTextFieldContract24Days = new javax.swing.JFormattedTextField();
+        lblContract24Days = new javax.swing.JLabel();
+        lblActualContractAmount = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
         btnDischarge = new javax.swing.JButton();
 
@@ -487,7 +526,7 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         tabbedPaneRegistrator.addTab("Общие данные", panelGeneralInformation);
@@ -588,25 +627,29 @@ public class Registrator extends javax.swing.JFrame {
 
         comboBoxMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "семейный/ая", "одинокий/ая", "на иждевении", "другое" }));
 
+        lblNamberOfFamily.setText("Количество членов семьи");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblWelfareLavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblEducation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(comboBoxWelfareLavel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBoxEducation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblWelfareLavel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblEducation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPlaceOfWork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblNamberOfFamily, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(comboBoxWelfareLavel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboBoxEducation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSpinner1)
+                    .addComponent(comboBoxMaritalStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textFieldPlaceOfWork))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -617,18 +660,21 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(lblWelfareLavel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(comboBoxEducation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMaritalStatus)))
+                    .addComponent(comboBoxEducation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEducation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPlaceOfWork)
                     .addComponent(textFieldPlaceOfWork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMaritalStatus))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNamberOfFamily)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelSocialCharacteristicLayout = new javax.swing.GroupLayout(panelSocialCharacteristic);
@@ -642,7 +688,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(412, Short.MAX_VALUE))
         );
         panelSocialCharacteristicLayout.setVerticalGroup(
             panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,17 +697,209 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(72, 160, Short.MAX_VALUE))
                     .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
-                        .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4)
-                            .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addComponent(jSeparator4)
+                        .addContainerGap())
+                    .addGroup(panelSocialCharacteristicLayout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         tabbedPaneRegistrator.addTab("Социальная характеристика", panelSocialCharacteristic);
+
+        lblNumberFamilyMembers.setText("Количество членов семьи");
+
+        lblRecipientIncome12Months.setText("Доход получателя с. у. за 12 месяцев всего");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "зарплата", "ЕДВ", "пенсия" }));
+
+        lblSpousesIncome12Months.setText("Доход супруга (а) за 12 месяцев всего");
+
+        comboBoxSpousesIncome12Months.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "зарплата", "ЕДВ", "пенсия" }));
+
+        lblIncomeMotherFather.setText("Доход мать (отец) за 12 месяцев всего");
+
+        comboBoxIncomeMotherFather.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "зарплата", "ЕДВ", "пенсия" }));
+
+        lblAmountIncomeAllFamily.setText("Cумма доходов всех членов семьи за 12 мес");
+
+        lblNumberMinorChildren.setText("Количество несовершенно летних детей");
+
+        lblAverageRevenue.setText("Cредняя сумма дохода за 12 месяцев ");
+
+        lblRecipientsPerCapitaIncome.setText("среднедушевой доход получателя с.у.");
+
+        lbl75pRecipientIncome.setText("75% среднедушевого дохода получателя");
+
+        lblCapPerCapitaIncome.setText("предельная величина среднедушевого дохода");
+
+        lblDifferencePerCapitaIncome.setText("Разница среднедушевого дохода");
+
+        lblNumberDaysMonth.setText("количество дней в месяце подачи заявления");
+
+        lblActualNumberDays.setText("фактическое количество дней");
+
+        lblContract24Days.setText("сумма договора на 24 дня");
+
+        lblActualContractAmount.setText("фактическая сумма договора");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblRecipientsPerCapitaIncome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNumberFamilyMembers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNumberMinorChildren, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblRecipientIncome12Months, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSpousesIncome12Months, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblIncomeMotherFather, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAmountIncomeAllFamily, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAverageRevenue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(formattedTextFieldAverageRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(formattedTextFieldRecipientsPerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                                .addComponent(formattedTextFieldRecipientIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                                .addComponent(formattedTextFieldSpousesIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(comboBoxSpousesIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                                .addComponent(formattedTextFieldIncomeMotherFather, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(comboBoxIncomeMotherFather, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(formattedTextFieldAmountIncomeAllFamily, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(formattedTextFieldSpousesIncome12Months1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(formattedTextFieldIncomeMotherFather1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(spinnerNumberFamilyMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spinnerNumberMinorChildren, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblDifferencePerCapitaIncome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblCapPerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(formattedTextFieldCapPerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(formattedTextFieldDifferencePerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblActualNumberDays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblNumberDaysMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(formattedTextFieldNumberDaysMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(formattedTextFieldActualNumberDays, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblActualContractAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblContract24Days, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(formattedTextFieldContract24Days, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(formattedTextFieldActualContractAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addContainerGap(136, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lbl75pRecipientIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(formattedTextField75pRecipientIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNumberMinorChildren)
+                            .addComponent(spinnerNumberMinorChildren, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNumberFamilyMembers)
+                                    .addComponent(spinnerNumberFamilyMembers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblRecipientIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(formattedTextFieldRecipientIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblSpousesIncome12Months)
+                                    .addComponent(formattedTextFieldSpousesIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxSpousesIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(formattedTextFieldSpousesIncome12Months1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblIncomeMotherFather)
+                                    .addComponent(formattedTextFieldIncomeMotherFather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxIncomeMotherFather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(formattedTextFieldIncomeMotherFather1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblAmountIncomeAllFamily)
+                                    .addComponent(formattedTextFieldAmountIncomeAllFamily, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblCapPerCapitaIncome)
+                                    .addComponent(formattedTextFieldCapPerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblDifferencePerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(formattedTextFieldDifferencePerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNumberDaysMonth)
+                                    .addComponent(formattedTextFieldNumberDaysMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblActualNumberDays, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(formattedTextFieldActualNumberDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblContract24Days)
+                                    .addComponent(formattedTextFieldContract24Days, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblActualContractAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(formattedTextFieldActualContractAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAverageRevenue)
+                            .addComponent(formattedTextFieldAverageRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRecipientsPerCapitaIncome)
+                    .addComponent(formattedTextFieldRecipientsPerCapitaIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl75pRecipientIncome)
+                    .addComponent(formattedTextField75pRecipientIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
+        tabbedPaneRegistrator.addTab("Оплата услуг", jPanel6);
 
         btnOk.setText("OK");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
@@ -692,8 +930,8 @@ public class Registrator extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addComponent(tabbedPaneRegistrator, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOk)
                     .addComponent(btnDischarge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -836,43 +1074,77 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JButton btnReceiptDateCalendar;
     private javax.swing.JComboBox<String> comboBoxDisabilityGroup;
     private javax.swing.JComboBox<String> comboBoxEducation;
+    private javax.swing.JComboBox<String> comboBoxIncomeMotherFather;
     private javax.swing.JComboBox<String> comboBoxMaritalStatus;
     private javax.swing.JComboBox<String> comboBoxPrimaryViolations;
     private javax.swing.JComboBox<String> comboBoxRehabilitationFacilities;
     private javax.swing.JComboBox<String> comboBoxServiceForm;
+    private javax.swing.JComboBox<String> comboBoxSpousesIncome12Months;
     private javax.swing.JComboBox<String> comboBoxWelfareLavel;
     private datechooser.beans.DateChooserDialog dateChooserDialogReceiptDate;
+    private javax.swing.JFormattedTextField formattedTextField75pRecipientIncome;
+    private javax.swing.JFormattedTextField formattedTextFieldActualContractAmount;
+    private javax.swing.JFormattedTextField formattedTextFieldActualNumberDays;
+    private javax.swing.JFormattedTextField formattedTextFieldAmountIncomeAllFamily;
+    private javax.swing.JFormattedTextField formattedTextFieldAverageRevenue;
+    private javax.swing.JFormattedTextField formattedTextFieldCapPerCapitaIncome;
+    private javax.swing.JFormattedTextField formattedTextFieldContract24Days;
     private javax.swing.JFormattedTextField formattedTextFieldDateBirth;
     private javax.swing.JFormattedTextField formattedTextFieldDateOfIssue;
+    private javax.swing.JFormattedTextField formattedTextFieldDifferencePerCapitaIncome;
     private javax.swing.JFormattedTextField formattedTextFieldDisabilityDate;
     private javax.swing.JFormattedTextField formattedTextFieldEmail;
+    private javax.swing.JFormattedTextField formattedTextFieldIncomeMotherFather;
+    private javax.swing.JFormattedTextField formattedTextFieldIncomeMotherFather1;
     private javax.swing.JFormattedTextField formattedTextFieldIprData;
+    private javax.swing.JFormattedTextField formattedTextFieldNumberDaysMonth;
     private javax.swing.JFormattedTextField formattedTextFieldPasportNumber;
     private javax.swing.JFormattedTextField formattedTextFieldPasportSeries;
     private javax.swing.JFormattedTextField formattedTextFieldReceiptDate;
+    private javax.swing.JFormattedTextField formattedTextFieldRecipientIncome12Months;
+    private javax.swing.JFormattedTextField formattedTextFieldRecipientsPerCapitaIncome;
     private javax.swing.JFormattedTextField formattedTextFieldSnils;
+    private javax.swing.JFormattedTextField formattedTextFieldSpousesIncome12Months;
+    private javax.swing.JFormattedTextField formattedTextFieldSpousesIncome12Months1;
     private javax.swing.JFormattedTextField formattedTextFieldTelephone;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel lbl75pRecipientIncome;
+    private javax.swing.JLabel lblActualContractAmount;
+    private javax.swing.JLabel lblActualNumberDays;
+    private javax.swing.JLabel lblAmountIncomeAllFamily;
+    private javax.swing.JLabel lblAverageRevenue;
+    private javax.swing.JLabel lblCapPerCapitaIncome;
     private javax.swing.JLabel lblCauseOfDisability;
+    private javax.swing.JLabel lblContract24Days;
     private javax.swing.JLabel lblDataBirth;
     private javax.swing.JLabel lblDateOfIssue;
+    private javax.swing.JLabel lblDifferencePerCapitaIncome;
     private javax.swing.JLabel lblDisabilityDate;
     private javax.swing.JLabel lblDisabilityGroup;
     private javax.swing.JLabel lblEducation;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFamily;
     private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblIncomeMotherFather;
     private javax.swing.JLabel lblIpr;
     private javax.swing.JLabel lblIprData;
     private javax.swing.JLabel lblIssuedBy;
     private javax.swing.JLabel lblMaritalStatus;
+    private javax.swing.JLabel lblNamberOfFamily;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNumberDaysMonth;
+    private javax.swing.JLabel lblNumberFamilyMembers;
+    private javax.swing.JLabel lblNumberMinorChildren;
     private javax.swing.JLabel lblPasportNumber;
     private javax.swing.JLabel lblPasportSeries;
     private javax.swing.JLabel lblPatron;
@@ -880,16 +1152,21 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JLabel lblPlaceOfWork;
     private javax.swing.JLabel lblPrimaryViolations;
     private javax.swing.JLabel lblReceiptDate;
+    private javax.swing.JLabel lblRecipientIncome12Months;
+    private javax.swing.JLabel lblRecipientsPerCapitaIncome;
     private javax.swing.JLabel lblRehabilitationFacilities;
     private javax.swing.JLabel lblResidenceAddress;
     private javax.swing.JLabel lblServiseForm;
     private javax.swing.JLabel lblSnils;
+    private javax.swing.JLabel lblSpousesIncome12Months;
     private javax.swing.JLabel lblTelephone;
     private javax.swing.JLabel lblWelfareLavel;
     private javax.swing.JPanel panelGeneralInformation;
     private javax.swing.JPanel panelSocialCharacteristic;
     private javax.swing.JRadioButton radioButtonGenderG;
     private javax.swing.JRadioButton radioButtonGenderM;
+    private javax.swing.JSpinner spinnerNumberFamilyMembers;
+    private javax.swing.JSpinner spinnerNumberMinorChildren;
     private javax.swing.JTabbedPane tabbedPaneRegistrator;
     private javax.swing.JTextField textFieldCauseOfDisability;
     private javax.swing.JTextField textFieldFamily;

@@ -41,8 +41,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="tabbedPaneRegistrator" min="-2" pref="319" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Component id="tabbedPaneRegistrator" min="-2" pref="337" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnOk" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDischarge" alignment="3" max="32767" attributes="0"/>
@@ -100,7 +100,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="15" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -625,7 +625,7 @@
                       <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="275" max="32767" attributes="0"/>
+                      <EmptySpace pref="412" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -636,17 +636,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="72" max="32767" attributes="0"/>
+                              <EmptySpace min="72" pref="160" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jSeparator4" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -822,22 +820,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblWelfareLavel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblEducation" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblMaritalStatus" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblPlaceOfWork" min="-2" pref="125" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblMaritalStatus" max="32767" attributes="0"/>
+                                  <Component id="lblWelfareLavel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblEducation" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblPlaceOfWork" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="lblNamberOfFamily" min="-2" pref="131" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="comboBoxWelfareLavel" max="32767" attributes="0"/>
-                                  <Component id="comboBoxEducation" max="32767" attributes="0"/>
-                                  <Component id="comboBoxMaritalStatus" min="-2" pref="99" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="textFieldPlaceOfWork" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="comboBoxWelfareLavel" max="32767" attributes="0"/>
+                              <Component id="comboBoxEducation" max="32767" attributes="0"/>
+                              <Component id="jSpinner1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboBoxMaritalStatus" alignment="0" max="32767" attributes="0"/>
+                              <Component id="textFieldPlaceOfWork" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -851,22 +851,25 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboBoxEducation" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="comboBoxMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="comboBoxEducation" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblEducation" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textFieldPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="comboBoxMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMaritalStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblNamberOfFamily" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -939,8 +942,382 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="textFieldPlaceOfWork">
                 </Component>
+                <Component class="javax.swing.JLabel" name="lblNamberOfFamily">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x447;&#x43b;&#x435;&#x43d;&#x43e;&#x432; &#x441;&#x435;&#x43c;&#x44c;&#x438;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="jSpinner1">
+                </Component>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel6">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="&#x41e;&#x43f;&#x43b;&#x430;&#x442;&#x430; &#x443;&#x441;&#x43b;&#x443;&#x433;">
+                <Property name="tabTitle" type="java.lang.String" value="&#x41e;&#x43f;&#x43b;&#x430;&#x442;&#x430; &#x443;&#x441;&#x43b;&#x443;&#x433;"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblRecipientsPerCapitaIncome" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblNumberFamilyMembers" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblNumberMinorChildren" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblRecipientIncome12Months" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblSpousesIncome12Months" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblIncomeMotherFather" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblAmountIncomeAllFamily" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblAverageRevenue" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="formattedTextFieldAverageRevenue" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldRecipientsPerCapitaIncome" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="formattedTextFieldRecipientIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="jComboBox1" min="-2" pref="85" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="formattedTextFieldSpousesIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="comboBoxSpousesIncome12Months" min="-2" pref="85" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="formattedTextFieldIncomeMotherFather" min="-2" pref="106" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="comboBoxIncomeMotherFather" min="-2" pref="85" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="formattedTextFieldAmountIncomeAllFamily" min="-2" pref="106" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jFormattedTextField2" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                                                  <Component id="formattedTextFieldSpousesIncome12Months1" min="-2" pref="115" max="-2" attributes="0"/>
+                                                  <Component id="formattedTextFieldIncomeMotherFather1" min="-2" pref="115" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="spinnerNumberFamilyMembers" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Component id="spinnerNumberMinorChildren" min="-2" pref="106" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="lblDifferencePerCapitaIncome" max="32767" attributes="0"/>
+                                                  <Component id="lblCapPerCapitaIncome" min="-2" pref="250" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="formattedTextFieldCapPerCapitaIncome" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Component id="formattedTextFieldDifferencePerCapitaIncome" min="-2" pref="124" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="lblActualNumberDays" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lblNumberDaysMonth" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="formattedTextFieldNumberDaysMonth" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Component id="formattedTextFieldActualNumberDays" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="lblActualContractAmount" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lblContract24Days" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="formattedTextFieldContract24Days" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                  <Component id="formattedTextFieldActualContractAmount" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="136" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lbl75pRecipientIncome" min="-2" pref="223" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="formattedTextField75pRecipientIncome" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spinnerNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblNumberFamilyMembers" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="spinnerNumberFamilyMembers" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblRecipientIncome12Months" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldRecipientIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboBoxSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldSpousesIncome12Months1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboBoxIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldIncomeMotherFather1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblAmountIncomeAllFamily" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldAmountIncomeAllFamily" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblCapPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldCapPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblDifferencePerCapitaIncome" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldDifferencePerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblNumberDaysMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldNumberDaysMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblActualNumberDays" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldActualNumberDays" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblContract24Days" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldContract24Days" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblActualContractAmount" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldActualContractAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblAverageRevenue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldAverageRevenue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblRecipientsPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="formattedTextFieldRecipientsPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbl75pRecipientIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="formattedTextField75pRecipientIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblNumberFamilyMembers">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x447;&#x43b;&#x435;&#x43d;&#x43e;&#x432; &#x441;&#x435;&#x43c;&#x44c;&#x438;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spinnerNumberMinorChildren">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRecipientIncome12Months">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x414;&#x43e;&#x445;&#x43e;&#x434; &#x43f;&#x43e;&#x43b;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43b;&#x44f; &#x441;. &#x443;. &#x437;&#x430; 12 &#x43c;&#x435;&#x441;&#x44f;&#x446;&#x435;&#x432; &#x432;&#x441;&#x435;&#x433;&#x43e;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldRecipientIncome12Months">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="&#x437;&#x430;&#x440;&#x43f;&#x43b;&#x430;&#x442;&#x430;"/>
+                    <StringItem index="1" value="&#x415;&#x414;&#x412;"/>
+                    <StringItem index="2" value="&#x43f;&#x435;&#x43d;&#x441;&#x438;&#x44f;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSpousesIncome12Months">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x414;&#x43e;&#x445;&#x43e;&#x434; &#x441;&#x443;&#x43f;&#x440;&#x443;&#x433;&#x430; (&#x430;) &#x437;&#x430; 12 &#x43c;&#x435;&#x441;&#x44f;&#x446;&#x435;&#x432; &#x432;&#x441;&#x435;&#x433;&#x43e;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldIncomeMotherFather">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxSpousesIncome12Months">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="&#x437;&#x430;&#x440;&#x43f;&#x43b;&#x430;&#x442;&#x430;"/>
+                    <StringItem index="1" value="&#x415;&#x414;&#x412;"/>
+                    <StringItem index="2" value="&#x43f;&#x435;&#x43d;&#x441;&#x438;&#x44f;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldSpousesIncome12Months1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIncomeMotherFather">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x414;&#x43e;&#x445;&#x43e;&#x434; &#x43c;&#x430;&#x442;&#x44c; (&#x43e;&#x442;&#x435;&#x446;) &#x437;&#x430; 12 &#x43c;&#x435;&#x441;&#x44f;&#x446;&#x435;&#x432; &#x432;&#x441;&#x435;&#x433;&#x43e;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldRecipientsPerCapitaIncome">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxIncomeMotherFather">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="&#x437;&#x430;&#x440;&#x43f;&#x43b;&#x430;&#x442;&#x430;"/>
+                    <StringItem index="1" value="&#x415;&#x414;&#x412;"/>
+                    <StringItem index="2" value="&#x43f;&#x435;&#x43d;&#x441;&#x438;&#x44f;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldAverageRevenue">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAmountIncomeAllFamily">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C&#x443;&#x43c;&#x43c;&#x430; &#x434;&#x43e;&#x445;&#x43e;&#x434;&#x43e;&#x432; &#x432;&#x441;&#x435;&#x445; &#x447;&#x43b;&#x435;&#x43d;&#x43e;&#x432; &#x441;&#x435;&#x43c;&#x44c;&#x438; &#x437;&#x430; 12 &#x43c;&#x435;&#x441;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldSpousesIncome12Months">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNumberMinorChildren">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x43d;&#x435;&#x441;&#x43e;&#x432;&#x435;&#x440;&#x448;&#x435;&#x43d;&#x43d;&#x43e; &#x43b;&#x435;&#x442;&#x43d;&#x438;&#x445; &#x434;&#x435;&#x442;&#x435;&#x439;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spinnerNumberFamilyMembers">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAverageRevenue">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C&#x440;&#x435;&#x434;&#x43d;&#x44f;&#x44f; &#x441;&#x443;&#x43c;&#x43c;&#x430; &#x434;&#x43e;&#x445;&#x43e;&#x434;&#x430; &#x437;&#x430; 12 &#x43c;&#x435;&#x441;&#x44f;&#x446;&#x435;&#x432; "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldIncomeMotherFather1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRecipientsPerCapitaIncome">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x441;&#x440;&#x435;&#x434;&#x43d;&#x435;&#x434;&#x443;&#x448;&#x435;&#x432;&#x43e;&#x439; &#x434;&#x43e;&#x445;&#x43e;&#x434; &#x43f;&#x43e;&#x43b;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43b;&#x44f; &#x441;.&#x443;."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldAmountIncomeAllFamily">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbl75pRecipientIncome">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="75% &#x441;&#x440;&#x435;&#x434;&#x43d;&#x435;&#x434;&#x443;&#x448;&#x435;&#x432;&#x43e;&#x433;&#x43e; &#x434;&#x43e;&#x445;&#x43e;&#x434;&#x430; &#x43f;&#x43e;&#x43b;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43b;&#x44f;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextField75pRecipientIncome">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCapPerCapitaIncome">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x43f;&#x440;&#x435;&#x434;&#x435;&#x43b;&#x44c;&#x43d;&#x430;&#x44f; &#x432;&#x435;&#x43b;&#x438;&#x447;&#x438;&#x43d;&#x430; &#x441;&#x440;&#x435;&#x434;&#x43d;&#x435;&#x434;&#x443;&#x448;&#x435;&#x432;&#x43e;&#x433;&#x43e; &#x434;&#x43e;&#x445;&#x43e;&#x434;&#x430;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldCapPerCapitaIncome">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDifferencePerCapitaIncome">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x420;&#x430;&#x437;&#x43d;&#x438;&#x446;&#x430; &#x441;&#x440;&#x435;&#x434;&#x43d;&#x435;&#x434;&#x443;&#x448;&#x435;&#x432;&#x43e;&#x433;&#x43e; &#x434;&#x43e;&#x445;&#x43e;&#x434;&#x430;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldDifferencePerCapitaIncome">
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldActualNumberDays">
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldNumberDaysMonth">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNumberDaysMonth">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x43a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x434;&#x43d;&#x435;&#x439; &#x432; &#x43c;&#x435;&#x441;&#x44f;&#x446;&#x435; &#x43f;&#x43e;&#x434;&#x430;&#x447;&#x438; &#x437;&#x430;&#x44f;&#x432;&#x43b;&#x435;&#x43d;&#x438;&#x44f;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblActualNumberDays">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x444;&#x430;&#x43a;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43a;&#x43e;&#x435; &#x43a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x434;&#x43d;&#x435;&#x439;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldActualContractAmount">
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldContract24Days">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblContract24Days">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x441;&#x443;&#x43c;&#x43c;&#x430; &#x434;&#x43e;&#x433;&#x43e;&#x432;&#x43e;&#x440;&#x430; &#x43d;&#x430; 24 &#x434;&#x43d;&#x44f;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblActualContractAmount">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x444;&#x430;&#x43a;&#x442;&#x438;&#x447;&#x435;&#x441;&#x43a;&#x430;&#x44f; &#x441;&#x443;&#x43c;&#x43c;&#x430; &#x434;&#x43e;&#x433;&#x43e;&#x432;&#x43e;&#x440;&#x430;"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
