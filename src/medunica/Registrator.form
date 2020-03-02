@@ -623,9 +623,9 @@
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="412" max="32767" attributes="0"/>
+                      <EmptySpace pref="292" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -634,19 +634,16 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="72" pref="160" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jSeparator4" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jSeparator4" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -818,26 +815,31 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblMaritalStatus" max="32767" attributes="0"/>
-                                  <Component id="lblWelfareLavel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblEducation" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblPlaceOfWork" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNumberMinorChildren" pref="253" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNamberOfFamily" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <Component id="lblMaritalStatus" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <Component id="lblPlaceOfWork" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <Component id="lblEducation" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <Component id="lblWelfareLavel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="lblNamberOfFamily" min="-2" pref="131" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="comboBoxWelfareLavel" max="32767" attributes="0"/>
                               <Component id="comboBoxEducation" max="32767" attributes="0"/>
                               <Component id="jSpinner1" alignment="0" max="32767" attributes="0"/>
                               <Component id="comboBoxMaritalStatus" alignment="0" max="32767" attributes="0"/>
                               <Component id="textFieldPlaceOfWork" alignment="0" max="32767" attributes="0"/>
+                              <Component id="spinnerNumberMinorChildren" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -850,14 +852,14 @@
                               <Component id="lblWelfareLavel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="comboBoxEducation" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEducation" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="comboBoxEducation" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEducation" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="textFieldPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPlaceOfWork" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -866,10 +868,15 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNamberOfFamily" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNamberOfFamily" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="spinnerNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -949,6 +956,13 @@
                 </Component>
                 <Component class="javax.swing.JSpinner" name="jSpinner1">
                 </Component>
+                <Component class="javax.swing.JLabel" name="lblNumberMinorChildren">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x43d;&#x435;&#x441;&#x43e;&#x432;&#x435;&#x440;&#x448;&#x435;&#x43d;&#x43d;&#x43e; &#x43b;&#x435;&#x442;&#x43d;&#x438;&#x445; &#x434;&#x435;&#x442;&#x435;&#x439;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="spinnerNumberMinorChildren">
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -968,99 +982,91 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="lblRecipientsPerCapitaIncome" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblNumberFamilyMembers" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblNumberMinorChildren" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblRecipientIncome12Months" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblSpousesIncome12Months" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblIncomeMotherFather" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblAmountIncomeAllFamily" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblAverageRevenue" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblAverageRevenue" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="formattedTextFieldAverageRevenue" min="-2" pref="106" max="-2" attributes="0"/>
                                   <Component id="formattedTextFieldRecipientsPerCapitaIncome" min="-2" pref="106" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="formattedTextFieldRecipientIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jComboBox1" min="-2" pref="85" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="formattedTextFieldSpousesIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="comboBoxSpousesIncome12Months" min="-2" pref="85" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="formattedTextFieldIncomeMotherFather" min="-2" pref="106" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="comboBoxIncomeMotherFather" min="-2" pref="85" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="formattedTextFieldAmountIncomeAllFamily" min="-2" pref="106" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="formattedTextFieldRecipientIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jFormattedTextField2" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                                  <Component id="formattedTextFieldSpousesIncome12Months1" min="-2" pref="115" max="-2" attributes="0"/>
-                                                  <Component id="formattedTextFieldIncomeMotherFather1" min="-2" pref="115" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="jComboBox1" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="spinnerNumberFamilyMembers" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                                          <Component id="spinnerNumberMinorChildren" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="formattedTextFieldSpousesIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="comboBoxSpousesIncome12Months" min="-2" pref="85" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="formattedTextFieldIncomeMotherFather" min="-2" pref="106" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="comboBoxIncomeMotherFather" min="-2" pref="85" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="formattedTextFieldAmountIncomeAllFamily" min="-2" pref="106" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="lblDifferencePerCapitaIncome" max="32767" attributes="0"/>
-                                                  <Component id="lblCapPerCapitaIncome" min="-2" pref="250" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="formattedTextFieldCapPerCapitaIncome" min="-2" pref="124" max="-2" attributes="0"/>
-                                                  <Component id="formattedTextFieldDifferencePerCapitaIncome" min="-2" pref="124" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="lblActualNumberDays" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lblNumberDaysMonth" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="formattedTextFieldNumberDaysMonth" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                                  <Component id="formattedTextFieldActualNumberDays" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="lblActualContractAmount" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lblContract24Days" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="formattedTextFieldContract24Days" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                                  <Component id="formattedTextFieldActualContractAmount" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jFormattedTextField2" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldSpousesIncome12Months1" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="formattedTextFieldIncomeMotherFather1" min="-2" pref="115" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="136" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="lbl75pRecipientIncome" min="-2" pref="223" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="formattedTextField75pRecipientIncome" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblDifferencePerCapitaIncome" max="32767" attributes="0"/>
+                                  <Component id="lblCapPerCapitaIncome" min="-2" pref="250" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="formattedTextFieldCapPerCapitaIncome" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldDifferencePerCapitaIncome" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblActualNumberDays" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblNumberDaysMonth" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="formattedTextFieldNumberDaysMonth" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldActualNumberDays" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblActualContractAmount" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblContract24Days" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="formattedTextFieldContract24Days" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldActualContractAmount" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="136" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1069,109 +1075,86 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="spinnerNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRecipientIncome12Months" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldRecipientIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblNumberFamilyMembers" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="spinnerNumberFamilyMembers" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblRecipientIncome12Months" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldRecipientIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="comboBoxSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldSpousesIncome12Months1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="comboBoxIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldIncomeMotherFather1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblAmountIncomeAllFamily" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldAmountIncomeAllFamily" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblCapPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldCapPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblDifferencePerCapitaIncome" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldDifferencePerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblNumberDaysMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldNumberDaysMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblActualNumberDays" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldActualNumberDays" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblContract24Days" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldContract24Days" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblActualContractAmount" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Component id="formattedTextFieldActualContractAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxSpousesIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldSpousesIncome12Months1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxIncomeMotherFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldIncomeMotherFather1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblAmountIncomeAllFamily" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldAmountIncomeAllFamily" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblAverageRevenue" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="formattedTextFieldAverageRevenue" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblRecipientsPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldRecipientsPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbl75pRecipientIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextField75pRecipientIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCapPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldCapPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblDifferencePerCapitaIncome" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldDifferencePerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNumberDaysMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldNumberDaysMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblActualNumberDays" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldActualNumberDays" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblContract24Days" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldContract24Days" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblActualContractAmount" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="formattedTextFieldActualContractAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblRecipientsPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="formattedTextFieldRecipientsPerCapitaIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl75pRecipientIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="formattedTextField75pRecipientIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace pref="97" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblNumberFamilyMembers">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x447;&#x43b;&#x435;&#x43d;&#x43e;&#x432; &#x441;&#x435;&#x43c;&#x44c;&#x438;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="spinnerNumberMinorChildren">
-            </Component>
             <Component class="javax.swing.JLabel" name="lblRecipientIncome12Months">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#x414;&#x43e;&#x445;&#x43e;&#x434; &#x43f;&#x43e;&#x43b;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43b;&#x44f; &#x441;. &#x443;. &#x437;&#x430; 12 &#x43c;&#x435;&#x441;&#x44f;&#x446;&#x435;&#x432; &#x432;&#x441;&#x435;&#x433;&#x43e;"/>
@@ -1247,13 +1230,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldSpousesIncome12Months">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNumberMinorChildren">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x43d;&#x435;&#x441;&#x43e;&#x432;&#x435;&#x440;&#x448;&#x435;&#x43d;&#x43d;&#x43e; &#x43b;&#x435;&#x442;&#x43d;&#x438;&#x445; &#x434;&#x435;&#x442;&#x435;&#x439;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="spinnerNumberFamilyMembers">
             </Component>
             <Component class="javax.swing.JLabel" name="lblAverageRevenue">
               <Properties>
