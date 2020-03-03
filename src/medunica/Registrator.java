@@ -7,10 +7,15 @@ package medunica;
 
 import java.awt.Component;
 import java.awt.Toolkit;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,7 +75,7 @@ public class Registrator extends javax.swing.JFrame {
         formattedTextFieldReceiptDate = new javax.swing.JFormattedTextField();
         btnReceiptDateCalendar = new javax.swing.JButton();
         btnDataBirthCalendar = new javax.swing.JButton();
-        btnDataBirthCalendar1 = new javax.swing.JButton();
+        btnFindSnils = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblPasportSeries = new javax.swing.JLabel();
         formattedTextFieldPasportSeries = new javax.swing.JFormattedTextField();
@@ -121,13 +126,13 @@ public class Registrator extends javax.swing.JFrame {
         comboBoxMaritalStatus = new javax.swing.JComboBox<>();
         textFieldPlaceOfWork = new javax.swing.JTextField();
         lblNamberOfFamily = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spinnerNamberOfFamily = new javax.swing.JSpinner();
         lblNumberMinorChildren = new javax.swing.JLabel();
         spinnerNumberMinorChildren = new javax.swing.JSpinner();
         jPanel6 = new javax.swing.JPanel();
         lblRecipientIncome12Months = new javax.swing.JLabel();
         formattedTextFieldRecipientIncome12Months = new javax.swing.JFormattedTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboBoxStatus_source_income_all = new javax.swing.JComboBox<>();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         lblSpousesIncome12Months = new javax.swing.JLabel();
         formattedTextFieldIncomeMotherFather = new javax.swing.JFormattedTextField();
@@ -223,10 +228,10 @@ public class Registrator extends javax.swing.JFrame {
             }
         });
 
-        btnDataBirthCalendar1.setText("...");
-        btnDataBirthCalendar1.addActionListener(new java.awt.event.ActionListener() {
+        btnFindSnils.setText("Find");
+        btnFindSnils.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDataBirthCalendar1ActionPerformed(evt);
+                btnFindSnilsActionPerformed(evt);
             }
         });
 
@@ -252,22 +257,22 @@ public class Registrator extends javax.swing.JFrame {
                         .addComponent(radioButtonGenderM)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(radioButtonGenderG)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 108, Short.MAX_VALUE))
                     .addComponent(textFieldName)
                     .addComponent(textFieldFamily)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(formattedTextFieldDateBirth)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDataBirthCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDataBirthCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(formattedTextFieldReceiptDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReceiptDateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textFieldPatron))
+                    .addComponent(textFieldPatron)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(formattedTextFieldDateBirth))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDataBirthCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFindSnils, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -295,7 +300,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSnils)
                     .addComponent(formattedTextFieldSnils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDataBirthCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFindSnils, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -510,7 +515,7 @@ public class Registrator extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 57, Short.MAX_VALUE))
                     .addComponent(jSeparator2))
                 .addContainerGap())
         );
@@ -649,7 +654,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboBoxWelfareLavel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboBoxEducation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSpinner1)
+                    .addComponent(spinnerNamberOfFamily)
                     .addComponent(comboBoxMaritalStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textFieldPlaceOfWork)
                     .addComponent(spinnerNumberMinorChildren))
@@ -676,7 +681,7 @@ public class Registrator extends javax.swing.JFrame {
                     .addComponent(lblMaritalStatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerNamberOfFamily, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNamberOfFamily))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -716,7 +721,7 @@ public class Registrator extends javax.swing.JFrame {
 
         lblRecipientIncome12Months.setText("Доход получателя с. у. за 12 месяцев всего");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "зарплата", "ЕДВ", "пенсия" }));
+        comboBoxStatus_source_income_all.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "зарплата", "ЕДВ", "пенсия" }));
 
         lblSpousesIncome12Months.setText("Доход супруга (а) за 12 месяцев всего");
 
@@ -770,7 +775,7 @@ public class Registrator extends javax.swing.JFrame {
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(formattedTextFieldRecipientIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(comboBoxStatus_source_income_all, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(formattedTextFieldSpousesIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -788,8 +793,7 @@ public class Registrator extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(lbl75pRecipientIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(formattedTextField75pRecipientIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(220, 220, 220)))
+                        .addComponent(formattedTextField75pRecipientIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -827,7 +831,7 @@ public class Registrator extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRecipientIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(formattedTextFieldRecipientIncome12Months, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxStatus_source_income_all, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -949,7 +953,8 @@ public class Registrator extends javax.swing.JFrame {
                     textFieldIssuedBy.getText().equals("") || formattedTextFieldDateOfIssue.getText().equals("")){
                 JOptionPane.showMessageDialog(frame,"Необходимо заполнить все поля","ВНИМАНИЕ",JOptionPane.WARNING_MESSAGE);
             } else{    
-                if(db.sendInsert("INSERT INTO medunica.clients (family,"
+                if(db.sendInsert("INSERT INTO medunica.clients ("
+                        + " family,"
                         + " name,"
                         + " patronomic,"
                         + " date_birth,"
@@ -976,6 +981,25 @@ public class Registrator extends javax.swing.JFrame {
                         + " marital_status,"
                         + " service_form,"
                         + " receipt_date,"
+                        + " discharge_date,"
+                        + " number_family_members,"
+                        + " number_minor_children,"
+                        + " recipient_income12_months,"    
+                        + " status_source_income_all, "
+                        + " spouses_income12_months, "
+                        + " status_spouses_income_12_months,"
+                        + " income_mother_father,"
+                        + " status_income_mother_father,"
+                        + " amount_income_all_family,"
+                        + " average_revenue,"
+                        + " recipients_per_capitaIncome,"
+                        + " _75p_recipient_income,"
+                        + " cap_per_capita_income,"
+                        + " difference_per_capita_income,"
+                        + " number_days_month,"
+                        + " actual_number_days,"
+                        + " contract_24_days,"
+                        + " actual_contract_amount,"
                         + " last_modified_date)"
                     + " VALUES('"+textFieldFamily.getText()
                     +"', '"+textFieldName.getText()
@@ -1002,8 +1026,27 @@ public class Registrator extends javax.swing.JFrame {
                     +"', '"+comboBoxWelfareLavel.getSelectedItem()
                     +"', '"+comboBoxEducation.getSelectedItem()
                     +"', '"+comboBoxMaritalStatus.getSelectedItem()
-                    +"','"+comboBoxServiceForm.getSelectedItem()
+                    +"', '"+comboBoxServiceForm.getSelectedItem()
                     +"', '"+formattedTextFieldReceiptDate.getText()
+                    +"', '"+"01.01.2020" // надо добавить реализацию на окно пользователя                            
+                    +"', '"+spinnerNamberOfFamily.getValue().toString()
+                    +"', '"+spinnerNumberMinorChildren.getValue().toString()                      
+                    +"', '"+formattedTextFieldRecipientIncome12Months.getText()
+                    +"', '"+comboBoxStatus_source_income_all.getSelectedItem() 
+                    +"', '"+formattedTextFieldSpousesIncome12Months.getText()
+                    +"', '"+comboBoxSpousesIncome12Months.getSelectedItem()
+                    +"', '"+formattedTextFieldIncomeMotherFather.getText()
+                    +"', '"+comboBoxIncomeMotherFather.getSelectedItem()
+                    +"', '"+formattedTextFieldAmountIncomeAllFamily.getText()
+                    +"', '"+formattedTextFieldAverageRevenue.getText()
+                    +"', '"+formattedTextFieldRecipientsPerCapitaIncome.getText()
+                    +"', '"+formattedTextField75pRecipientIncome.getText()
+                    +"', '"+formattedTextFieldCapPerCapitaIncome.getText()
+                    +"', '"+formattedTextFieldDifferencePerCapitaIncome.getText()
+                    +"', '"+formattedTextFieldNumberDaysMonth.getText()
+                    +"', '"+formattedTextFieldActualNumberDays.getText()
+                    +"', '"+formattedTextFieldContract24Days.getText()
+                    +"', '"+formattedTextFieldActualContractAmount.getText()  
                     +"', '"+dateFormat.format(cal.getTime()
                     )+"')")){
                     JOptionPane.showMessageDialog(frame,"Данные успешно добавлены","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
@@ -1078,11 +1121,25 @@ public class Registrator extends javax.swing.JFrame {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
         dateFormat.format(cal.getTime());
+        
     }//GEN-LAST:event_btnDischargeActionPerformed
 
-    private void btnDataBirthCalendar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataBirthCalendar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDataBirthCalendar1ActionPerformed
+    private void btnFindSnilsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindSnilsActionPerformed
+       
+        String prest= "SELECT * FROM clients";
+        
+        ResultSet rs = db.sendSelect(prest);
+        
+        try {
+            while (rs.next()){
+                String mov_name = rs.getString(2);
+                System.out.println(mov_name);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       // System.out.println("Number of records: " + count);
+    }//GEN-LAST:event_btnFindSnilsActionPerformed
 
     // Очистка полей ввода данных
     private void clearTexField(){
@@ -1090,16 +1147,21 @@ public class Registrator extends javax.swing.JFrame {
         formattedTextFieldPasportSeries.setText(""); formattedTextFieldPasportNumber.setText(""); textFieldIssuedBy.setText(""); formattedTextFieldDateOfIssue.setText("");
         textFieldResidenceAddress.setText(""); textFieldPermanentRegistration.setText(""); textFieldIpr.setText(""); formattedTextFieldIprData.setText("");
         formattedTextFieldTelephone.setText(""); formattedTextFieldEmail.setText(""); textFieldCauseOfDisability.setText(""); formattedTextFieldDisabilityDate.setText("");
-        textFieldPlaceOfWork.setText("");
+        textFieldPlaceOfWork.setText(""); spinnerNamberOfFamily.setValue(0); spinnerNumberMinorChildren.setValue(0); 
+        formattedTextFieldRecipientIncome12Months.setText(""); formattedTextFieldSpousesIncome12Months.setText(""); formattedTextFieldIncomeMotherFather.setText("");
+        formattedTextFieldAmountIncomeAllFamily.setText(""); formattedTextFieldAverageRevenue.setText(""); formattedTextFieldRecipientsPerCapitaIncome.setText("");
+        formattedTextField75pRecipientIncome.setText(""); formattedTextFieldCapPerCapitaIncome.setText(""); formattedTextFieldDifferencePerCapitaIncome.setText("");
+        formattedTextFieldNumberDaysMonth.setText(""); formattedTextFieldActualNumberDays.setText(""); formattedTextFieldContract24Days.setText(""); 
+        formattedTextFieldActualContractAmount.setText("");
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDataBirthCalendar;
-    private javax.swing.JButton btnDataBirthCalendar1;
     private javax.swing.JButton btnDateOfIssueCalendar;
     private javax.swing.JButton btnDisabilityDateCalendar;
     private javax.swing.JButton btnDischarge;
+    private javax.swing.JButton btnFindSnils;
     private javax.swing.JButton btnIprDateCalendar;
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnReceiptDateCalendar;
@@ -1111,6 +1173,7 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxRehabilitationFacilities;
     private javax.swing.JComboBox<String> comboBoxServiceForm;
     private javax.swing.JComboBox<String> comboBoxSpousesIncome12Months;
+    private javax.swing.JComboBox<String> comboBoxStatus_source_income_all;
     private javax.swing.JComboBox<String> comboBoxWelfareLavel;
     private datechooser.beans.DateChooserDialog dateChooserDialogReceiptDate;
     private javax.swing.JFormattedTextField formattedTextField75pRecipientIncome;
@@ -1138,7 +1201,6 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField formattedTextFieldSpousesIncome12Months;
     private javax.swing.JFormattedTextField formattedTextFieldSpousesIncome12Months1;
     private javax.swing.JFormattedTextField formattedTextFieldTelephone;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1148,7 +1210,6 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lbl75pRecipientIncome;
     private javax.swing.JLabel lblActualContractAmount;
     private javax.swing.JLabel lblActualNumberDays;
@@ -1195,6 +1256,7 @@ public class Registrator extends javax.swing.JFrame {
     private javax.swing.JPanel panelSocialCharacteristic;
     private javax.swing.JRadioButton radioButtonGenderG;
     private javax.swing.JRadioButton radioButtonGenderM;
+    private javax.swing.JSpinner spinnerNamberOfFamily;
     private javax.swing.JSpinner spinnerNumberMinorChildren;
     private javax.swing.JTabbedPane tabbedPaneRegistrator;
     private javax.swing.JTextField textFieldCauseOfDisability;

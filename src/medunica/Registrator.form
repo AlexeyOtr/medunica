@@ -81,7 +81,7 @@
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -133,26 +133,27 @@
                                   <Component id="radioButtonGenderM" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="radioButtonGenderG" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="108" max="32767" attributes="0"/>
                               </Group>
                               <Component id="textFieldName" alignment="0" max="32767" attributes="0"/>
                               <Component id="textFieldFamily" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="formattedTextFieldDateBirth" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnDataBirthCalendar" min="-2" pref="24" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="formattedTextFieldSnils" pref="148" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnDataBirthCalendar1" min="-2" pref="24" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="formattedTextFieldReceiptDate" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnReceiptDateCalendar" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                               <Component id="textFieldPatron" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="formattedTextFieldSnils" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="formattedTextFieldDateBirth" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnDataBirthCalendar" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="btnFindSnils" min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -188,7 +189,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblSnils" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="formattedTextFieldSnils" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnDataBirthCalendar1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="btnFindSnils" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -304,12 +305,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDataBirthCalendarActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnDataBirthCalendar1">
+                <Component class="javax.swing.JButton" name="btnFindSnils">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="..."/>
+                    <Property name="text" type="java.lang.String" value="Find"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDataBirthCalendar1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindSnilsActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -834,7 +835,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="comboBoxWelfareLavel" max="32767" attributes="0"/>
                               <Component id="comboBoxEducation" max="32767" attributes="0"/>
-                              <Component id="jSpinner1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="spinnerNamberOfFamily" alignment="0" max="32767" attributes="0"/>
                               <Component id="comboBoxMaritalStatus" alignment="0" max="32767" attributes="0"/>
                               <Component id="textFieldPlaceOfWork" alignment="0" max="32767" attributes="0"/>
                               <Component id="spinnerNumberMinorChildren" max="32767" attributes="0"/>
@@ -868,7 +869,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="spinnerNamberOfFamily" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblNamberOfFamily" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -954,7 +955,7 @@
                     <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43b;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43e; &#x447;&#x43b;&#x435;&#x43d;&#x43e;&#x432; &#x441;&#x435;&#x43c;&#x44c;&#x438;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinner1">
+                <Component class="javax.swing.JSpinner" name="spinnerNamberOfFamily">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNumberMinorChildren">
                   <Properties>
@@ -1000,7 +1001,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="formattedTextFieldRecipientIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jComboBox1" min="-2" pref="85" max="-2" attributes="0"/>
+                                              <Component id="comboBoxStatus_source_income_all" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="formattedTextFieldSpousesIncome12Months" min="-2" pref="106" max="-2" attributes="0"/>
@@ -1027,7 +1028,6 @@
                               <Component id="lbl75pRecipientIncome" min="-2" pref="223" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="formattedTextField75pRecipientIncome" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -1079,7 +1079,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblRecipientIncome12Months" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                                   <Component id="formattedTextFieldRecipientIncome12Months" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxStatus_source_income_all" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1162,7 +1162,7 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="formattedTextFieldRecipientIncome12Months">
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="comboBoxStatus_source_income_all">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
