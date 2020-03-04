@@ -1145,13 +1145,14 @@ public class Registrator extends javax.swing.JFrame {
         Date cal = dateChooserDialogReceiptDate.getCurrent().getTime();
         dateFormat.format(cal.getTime());
         if(db.sendUpdate("UPDATE clients SET discharge_date = '"+dateFormat.format(cal.getTime())+"' WHERE id = '"+selectedID+"'")){     
-            JOptionPane.showMessageDialog(frame1,"Дата выпискы сохранена","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(frame1,"Дата выписки "+dateFormat.format(cal.getTime())+"\nсохранена","МЕДУНИЦА",JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(frame1,"Ошибка записи даты выписки","ОШИБКА",JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_btnDischargeActionPerformed
 
+    // Кнопка поиска клиента по СНИЛС
     private void btnFindSnilsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindSnilsActionPerformed
        
         String prest= "SELECT * FROM clients WHERE snils='"+formattedTextFieldSnils.getText()+"'";
