@@ -1126,14 +1126,58 @@ public class Registrator extends javax.swing.JFrame {
 
     private void btnFindSnilsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindSnilsActionPerformed
        
-        String prest= "SELECT * FROM clients";
+        String prest= "SELECT * FROM clients WHERE snils='"+formattedTextFieldSnils.getText()+"'";
         
         ResultSet rs = db.sendSelect(prest);
         
         try {
             while (rs.next()){
-                String mov_name = rs.getString(2);
-                System.out.println(mov_name);
+//                String mov_name = rs.getString(2);
+//                System.out.println(mov_name);
+                textFieldFamily.setText(rs.getString("family"));
+                textFieldName.setText(rs.getString("name"));
+                textFieldPatron.setText(rs.getString("patronomic"));
+                formattedTextFieldDateBirth.setText(rs.getString("date_birth"));
+                formattedTextFieldPasportSeries.setText(rs.getString("pasport_series"));
+                formattedTextFieldPasportNumber.setText(rs.getString("pasport_number"));
+                formattedTextFieldDateOfIssue.setText(rs.getString("date_of_issue"));
+                formattedTextFieldTelephone.setText(rs.getString("telephone"));
+                formattedTextFieldEmail.setText(rs.getString("email"));
+                textFieldIssuedBy.setText(rs.getString("issued_by"));
+                textFieldResidenceAddress.setText(rs.getString("residence_address"));
+                textFieldPermanentRegistration.setText(rs.getString("permanent_registration"));
+                textFieldIpr.setText(rs.getString("ipr"));
+                formattedTextFieldIprData.setText(rs.getString("ipr_date"));
+                comboBoxServiceForm.getModel().setSelectedItem(rs.getString("service_form"));
+                
+                comboBoxDisabilityGroup.getModel().setSelectedItem(rs.getString("disability_group"));
+                comboBoxPrimaryViolations.getModel().setSelectedItem(rs.getString("primary_violations"));
+                comboBoxRehabilitationFacilities.getModel().setSelectedItem(rs.getString("rehabilitation_facilities"));
+                comboBoxWelfareLavel.getModel().setSelectedItem(rs.getString("welfare_level"));
+                comboBoxEducation.getModel().setSelectedItem(rs.getString("education"));
+                comboBoxMaritalStatus.getModel().setSelectedItem(rs.getString("marital_status"));
+                textFieldCauseOfDisability.setText(rs.getString("cause_of_disability"));
+                formattedTextFieldDisabilityDate.setText(rs.getString("disability_date"));
+                textFieldPlaceOfWork.setText(rs.getString("place_of_work"));
+                spinnerNamberOfFamily.setValue(Integer.valueOf(rs.getString("number_family_members")));
+                spinnerNumberMinorChildren.setValue(Integer.valueOf(rs.getString("number_minor_children")));
+                
+                formattedTextFieldRecipientIncome12Months.setText(rs.getString("recipient_income12_months"));
+                formattedTextFieldSpousesIncome12Months.setText(rs.getString("spouses_income12_months"));
+                formattedTextFieldIncomeMotherFather.setText(rs.getString("income_mother_father"));
+                formattedTextFieldAmountIncomeAllFamily.setText(rs.getString("amount_income_all_family"));
+                formattedTextFieldAverageRevenue.setText(rs.getString("average_revenue"));
+                formattedTextFieldRecipientsPerCapitaIncome.setText(rs.getString("recipients_per_capitaIncome"));
+                formattedTextField75pRecipientIncome.setText(rs.getString("_75p_recipient_income"));
+                formattedTextFieldCapPerCapitaIncome.setText(rs.getString("cap_per_capita_income"));
+                formattedTextFieldDifferencePerCapitaIncome.setText(rs.getString("difference_per_capita_income"));
+                formattedTextFieldNumberDaysMonth.setText(rs.getString("number_days_month"));
+                formattedTextFieldActualNumberDays.setText(rs.getString("actual_number_days"));
+                formattedTextFieldContract24Days.setText(rs.getString("contract_24_days"));
+                formattedTextFieldActualContractAmount.setText(rs.getString("actual_contract_amount"));
+                comboBoxStatus_source_income_all.getModel().setSelectedItem(rs.getString("status_source_income_all"));
+                comboBoxSpousesIncome12Months.getModel().setSelectedItem(rs.getString("status_spouses_income_12_months"));
+                comboBoxIncomeMotherFather.getModel().setSelectedItem(rs.getString("status_income_mother_father"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
