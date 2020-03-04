@@ -69,4 +69,16 @@ public class DataBase {
                 return false;
             }
     }
+    
+    // Отправка запроса к БД, UPDATE
+    public boolean sendUpdate(String query){
+            try {
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate(query);
+                return true;
+            } catch (SQLException ex) {
+                System.err.println("Ошибка запроса к БД");
+                return false;
+            }
+    }
 }
