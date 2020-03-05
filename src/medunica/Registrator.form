@@ -644,7 +644,7 @@
                                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -880,7 +880,7 @@
                               <Component id="spinnerNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblNumberMinorChildren" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="87" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1320,7 +1320,6 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x420;&#x435;&#x430;&#x431;&#x438;&#x43b;&#x438;&#x442;&#x430;&#x446;&#x438;&#x43e;&#x43d;&#x43d;&#x430;&#x44f; &#x43a;&#x430;&#x440;&#x442;&#x430;"/>
-        <Property name="actionCommand" type="java.lang.String" value="&#x420;&#x435;&#x430;&#x431;&#x438;&#x43b;&#x438;&#x442;&#x430;&#x446;&#x438;&#x43e;&#x43d;&#x43d;&#x430;&#x44f; &#x43a;&#x430;&#x440;&#x442;&#x430;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

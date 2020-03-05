@@ -26,6 +26,8 @@ import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 
 import java.math.BigInteger;
+import java.sql.Time;
+import java.time.Instant;
 
 /**
  *
@@ -698,7 +700,7 @@ public class Registrator extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinnerNumberMinorChildren, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNumberMinorChildren))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelSocialCharacteristicLayout = new javax.swing.GroupLayout(panelSocialCharacteristic);
@@ -724,7 +726,7 @@ public class Registrator extends javax.swing.JFrame {
                         .addGroup(panelSocialCharacteristicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 95, Short.MAX_VALUE)))
+                        .addGap(0, 19, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -916,7 +918,6 @@ public class Registrator extends javax.swing.JFrame {
         });
 
         jButton1.setText("Реабилитационная карта");
-        jButton1.setActionCommand("Реабилитационная карта");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -1221,10 +1222,6 @@ public class Registrator extends javax.swing.JFrame {
             FileOutputStream fos = new FileOutputStream(new File("D:/Reabilitation card.docx"));
             XWPFDocument myNewDoc = new XWPFDocument();
 
-
-
-
-
 // Добавляется нумерация страниц
             CTP ctp = CTP.Factory.newInstance();
 //this add page number incremental
@@ -1253,11 +1250,9 @@ public class Registrator extends javax.swing.JFrame {
             XWPFParagraph parag1 = myNewDoc.createParagraph();
             XWPFRun run1 = parag1.createRun();
             XWPFRun run01 = parag1.createRun();
-
-            String data = " ЗЕРНО ";
             
-            run1.setText("Государственное автономное учреждение социального обслуживания");
-            run01.setText("ООО «Рога и копыта» " + data);
+            run1.setText("Государственное автономное учреждение социального обслуживания Краснодарского края");
+            run01.setText("«Краевой комплексный центр реабилитации инвалидов «Медуница»");
             parag1.setAlignment(ParagraphAlignment.CENTER);
             run1.setFontFamily("Times New Roman");
             run1.setFontSize(13);
@@ -1289,7 +1284,7 @@ public class Registrator extends javax.swing.JFrame {
 
             XWPFRun run21 = parag2.createRun();
 
-            run21.setText("№___________");
+            run21.setText("№ " + selectedID);          // "№___________"
             run21.setFontFamily("Times New Roman");
             run21.setFontSize(20);
             run21.addBreak();
@@ -1299,10 +1294,8 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run4 = parag4.createRun();
             parag4.setAlignment(ParagraphAlignment.LEFT);
 
-            run4.setText("Ф.И.О.  ______________________________________");
+            run4.setText(textFieldFamily.getText() + " " + textFieldName.getText() + " " + textFieldPatron.getText());   // Ф.И.О.
             run4.addBreak();
-
-            run4.setText("              " + "______________________________________");
 
             run4.setFontFamily("Times New Roman");
             run4.setFontSize(20);
@@ -1316,10 +1309,10 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run52 = parag5.createRun();
             XWPFRun run53 = parag5.createRun();
             parag5.setAlignment(ParagraphAlignment.LEFT);
-            run5.setText("Дата поступления  ___________________________________");
+            run5.setText("Дата поступления  " + formattedTextFieldReceiptDate.getText());
             run5.addBreak();
             run5.addBreak();
-            run51.setText("Дата выписки _______________________________________");
+            run51.setText("Дата выписки ______________");
             run51.addBreak();
             run51.addBreak();
             run52.setText("Осмотр на педикулез и чесотку ________________________");
@@ -1342,7 +1335,7 @@ public class Registrator extends javax.swing.JFrame {
             XWPFParagraph parag6 = myNewDoc.createParagraph();
             XWPFRun run6 = parag6.createRun();
 
-            run6.setText("С правилами внутреннего распорядка для получателей социальных услуг ООО «Рога и копыта», ознакомлен (-а)");
+            run6.setText("С правилами внутреннего распорядка для получателей социальных услуг «Краевой комплексный центр реабилитации инвалидов «Медуница», ознакомлен (-а)");
             parag6.setAlignment(ParagraphAlignment.LEFT);
             run6.setFontFamily("Times New Roman");
             run6.setFontSize(16);
@@ -1384,32 +1377,38 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run801 = parag8.createRun();
             run801.setFontFamily("Times New Roman");
             run801.setFontSize(12);
-            run801.setText("______________________________________________________________");
-
+            run801.setText(textFieldFamily.getText() + " " + textFieldName.getText() + " " + textFieldPatron.getText()); // ФИО
             run801.addBreak();
+            
             XWPFRun run802 = parag8.createRun();
             run802.setFontFamily("Times New Roman");
             run802.setFontSize(12);
             run802.setBold(true);
-            run802.setText("2. Дата рождения ");
+            run802.setText("2. Дата рождения  ");
+            
             XWPFRun run803 = parag8.createRun();
             run803.setFontFamily("Times New Roman");
             run803.setFontSize(12);
-            run803.setText("___________________________ ");
+            run803.setText(formattedTextFieldDateBirth.getText());
+            run803.addBreak();
+            
             XWPFRun run804 = parag8.createRun();
             run804.setFontFamily("Times New Roman");
             run804.setFontSize(12);
             run804.setBold(true);
             run804.setText("3. Возраст ");
+            //run804.addBreak();
+            
             XWPFRun run805 = parag8.createRun();
             run805.setFontFamily("Times New Roman");
             run805.setFontSize(12);
             run805.setText("(число полных лет) ________________");
             run805.addBreak();
+            
             XWPFRun run806 = parag8.createRun();
             run806.setFontFamily("Times New Roman");
             run806.setFontSize(12);
-            run806.setText("4. Пол");
+            run806.setText("4. Пол ");
             run806.setBold(true);
             XWPFRun run807 = parag8.createRun();
             run807.setFontFamily("Times New Roman");
@@ -1419,65 +1418,65 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run808 = parag8.createRun();
             run808.setFontFamily("Times New Roman");
             run808.setFontSize(12);
-            run808.setText("5. Адрес места жительства:");
+            run808.setText("5. Адрес места жительства:  ");
             run808.setBold(true);
             XWPFRun run809 = parag8.createRun();
             run809.setFontFamily("Times New Roman");
             run809.setFontSize(12);
-            run809.setText(" ______________________________________________________________");
+            run809.setText(textFieldResidenceAddress.getText());
             run809.addBreak();
-            XWPFRun run810 = parag8.createRun();
-            run810.setFontFamily("Times New Roman");
-            run810.setFontSize(12);
-            run810.setText("_______________________________________________________________________________________");
-            run810.addBreak();
+//            XWPFRun run810 = parag8.createRun();
+//            run810.setFontFamily("Times New Roman");
+//            run810.setFontSize(12);
+//            run810.setText("_______________________________________________________________________________________");
+//            run810.addBreak();
             XWPFRun run811 = parag8.createRun();
             run811.setFontFamily("Times New Roman");
             run811.setFontSize(12);
-            run811.setText("6. Место постоянной регистрации");
+            run811.setText("6. Место постоянной регистрации:  ");
             run811.setBold(true);
-            XWPFRun run812 = parag8.createRun();
-            run812.setFontFamily("Times New Roman");
-            run812.setFontSize(12);
-            run812.setText(" (при совпадении реквизитов с местом жительства пункт не заполняется)" +
-                    " ___________________________________________________________________________");
-            run812.addBreak();
+//            XWPFRun run812 = parag8.createRun();
+//            run812.setFontFamily("Times New Roman");
+//            run812.setFontSize(12);
+//            run812.setText(" (при совпадении реквизитов с местом жительства пункт не заполняется)" +
+//                    " ___________________________________________________________________________");
+//            run812.addBreak();
             XWPFRun run813 = parag8.createRun();
             run813.setFontFamily("Times New Roman");
             run813.setFontSize(12);
-            run813.setText("_______________________________________________________________________________________");
+            run813.setText(textFieldPermanentRegistration.getText());
             run813.addBreak();
             XWPFRun run814 = parag8.createRun();
             run814.setFontFamily("Times New Roman");
             run814.setFontSize(12);
-            run814.setText("7. Контактные телефоны:");
+            run814.setText("7. Контактные телефоны:  ");
             run814.setBold(true);
             XWPFRun run815 = parag8.createRun();
             run815.setFontFamily("Times New Roman");
             run815.setFontSize(12);
-            run815.setText(" _______________________________________________________________");
+            run815.setText(formattedTextFieldTelephone.getText());
             run815.addBreak();
 
             XWPFRun run816 = parag8.createRun();
             run816.setFontFamily("Times New Roman");
             run816.setFontSize(12);
-            run816.setText("8. Паспорт гражданина:");
+            run816.setText("8. Паспорт гражданина:  ");
             run816.setBold(true);
             XWPFRun run817 = parag8.createRun();
             run817.setFontFamily("Times New Roman");
             run817.setFontSize(12);
-            run817.setText(" серия _____________ номер ______________ Кем выдан ________________");
+            run817.setText(" серия "+formattedTextFieldPasportSeries.getText()+" номер "+formattedTextFieldPasportNumber.getText()+" Кем выдан "+textFieldIssuedBy.getText()+"");
             run817.addBreak();
-            XWPFRun run818 = parag8.createRun();
-            run818.setFontFamily("Times New Roman");
-            run818.setFontSize(12);
-            run818.setText("_______________________________________________________________________________________");
-            run818.addBreak();
+//            XWPFRun run818 = parag8.createRun();
+//            run818.setFontFamily("Times New Roman");
+//            run818.setFontSize(12);
+//            run818.setText("_______________________________________________________________________________________");
+//            run818.addBreak();
 
             XWPFRun run819 = parag8.createRun();
             run819.setFontFamily("Times New Roman");
             run819.setFontSize(12);
-            run819.setText("9. ИПР/ИПРА инвалида № ___________________ Дата разработки ИПР/ИПРА ________________");
+            run819.setText("9. ИПР/ИПРА инвалида № "+textFieldIpr.getText()+" Дата разработки ИПР/ИПРА "+formattedTextFieldIprData.getText()+"");
             run819.setBold(true);
             run819.addBreak();
             XWPFRun run820 = parag8.createRun();
@@ -1489,7 +1488,7 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run821 = parag8.createRun();
             run821.setFontFamily("Times New Roman");
             run821.setFontSize(12);
-            run821.setText("10. Получает социальные услуги в ООО «Рога и копыта»:");
+            run821.setText("10. Получает социальные услуги в «Краевой комплексный центр реабилитации инвалидов «Медуница» :");
             run821.setBold(true);
             XWPFRun run822 = parag8.createRun();
             run822.setFontFamily("Times New Roman");
@@ -1533,22 +1532,22 @@ public class Registrator extends javax.swing.JFrame {
             run10.setFontFamily("Times New Roman");
             run10.setFontSize(12);
             run10.setBold(true);
-            run10.setText("12. Группа инвалидности");
+            run10.setText("12. Группа инвалидности:  ");
             XWPFRun run1001 = parag10.createRun();
             run1001.setFontFamily("Times New Roman");
             run1001.setFontSize(12);
-            run1001.setText(" (первая, вторая, третья) ___________________________________________");
+            run1001.setText(comboBoxDisabilityGroup.getSelectedItem().toString());                          //  (первая, вторая, третья) ___________________________________________)
             run1001.addBreak();
 
             XWPFRun run1002 = parag10.createRun();
             run1002.setFontFamily("Times New Roman");
             run1002.setFontSize(12);
             run1002.setBold(true);
-            run1002.setText("13. Причина инвалидности:");
+            run1002.setText("13. Причина инвалидности:  ");
             XWPFRun run1003 = parag10.createRun();
             run1003.setFontFamily("Times New Roman");
             run1003.setFontSize(12);
-            run1003.setText("  _____________________________________________________________");
+            run1003.setText(textFieldCauseOfDisability.getText());
             run1003.addBreak();
 
             XWPFRun run1004 = parag10.createRun();
@@ -1559,7 +1558,7 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run1005 = parag10.createRun();
             run1005.setFontFamily("Times New Roman");
             run1005.setFontSize(12);
-            run1005.setText("  __________________________________________________");
+            run1005.setText(formattedTextFieldDisabilityDate.getText());
             run1005.addBreak();
 
             XWPFRun run1006 = parag10.createRun();
@@ -1570,39 +1569,39 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run1007 = parag10.createRun();
             run1007.setFontFamily("Times New Roman");
             run1007.setFontSize(12);
-            run1007.setText(" (количество лет)  __________________________________________");
+            run1007.setText(" (количество лет)  _____");
             run1007.addBreak();
 
             XWPFRun run1008 = parag10.createRun();
             run1008.setFontFamily("Times New Roman");
             run1008.setFontSize(12);
             run1008.setBold(true);
-            run1008.setText("16. Преимущественные нарушения:");
-            XWPFRun run1009 = parag10.createRun();
-            run1009.setFontFamily("Times New Roman");
-            run1009.setFontSize(12);
-            run1009.setText(" (нужное подчеркнуть)");
-            run1009.addBreak();
+            run1008.setText("16. Преимущественные нарушения:  ");
+//            XWPFRun run1009 = parag10.createRun();
+//            run1009.setFontFamily("Times New Roman");
+//            run1009.setFontSize(12);
+//            run1009.setText(" (нужное подчеркнуть)");
+//            run1009.addBreak();
             XWPFRun run1010 = parag10.createRun();
             run1010.setFontFamily("Times New Roman");
             run1010.setFontSize(12);
-            run1010.setText("ПОДА (в/конечности, н/конечности), слуха, зрения, психики, прочее");
+            run1010.setText("ПОДА " + comboBoxPrimaryViolations.getSelectedItem().toString());
             run1010.addBreak();
 
             XWPFRun run1011 = parag10.createRun();
             run1011.setFontFamily("Times New Roman");
             run1011.setFontSize(12);
             run1011.setBold(true);
-            run1011.setText("17. Используемые технические средства реабилитации:");
-            XWPFRun run1012 = parag10.createRun();
-            run1012.setFontFamily("Times New Roman");
-            run1012.setFontSize(12);
-            run1012.setText(" (нужное подчеркнуть)");
-            run1012.addBreak();
+            run1011.setText("17. Используемые технические средства реабилитации:  ");
+//            XWPFRun run1012 = parag10.createRun();
+//            run1012.setFontFamily("Times New Roman");
+//            run1012.setFontSize(12);
+//            run1012.setText(" (нужное подчеркнуть)");
+//            run1012.addBreak();
             XWPFRun run1013 = parag10.createRun();
             run1013.setFontFamily("Times New Roman");
             run1013.setFontSize(12);
-            run1013.setText("к/коляска, костыли, трость, не использует");
+            run1013.setText(comboBoxRehabilitationFacilities.getSelectedItem().toString());
             run1013.addBreak();
 
             XWPFRun run1014 = parag10.createRun();
@@ -1613,7 +1612,7 @@ public class Registrator extends javax.swing.JFrame {
             XWPFRun run1015 = parag10.createRun();
             run1015.setFontFamily("Times New Roman");
             run1015.setFontSize(12);
-            run1015.setText(" (место работы):  ____________________________________________________________");
+            run1015.setText(" (место работы):  "+textFieldPlaceOfWork.getText()+"");
             run1015.addBreak();
 
             XWPFRun run1016 = parag10.createRun();
@@ -1631,22 +1630,22 @@ public class Registrator extends javax.swing.JFrame {
             run1018.setFontFamily("Times New Roman");
             run1018.setFontSize(12);
             run1018.setBold(true);
-            run1018.setText("20. Уровень материального благосостояния:");
+            run1018.setText("20. Уровень материального благосостояния:  ");
             XWPFRun run1019 = parag10.createRun();
             run1019.setFontFamily("Times New Roman");
             run1019.setFontSize(12);
-            run1019.setText(" средний (удовлетворяет, не удовлетворяет), уровень прожиточного минимума, ниже прожиточного минимума");
+            run1019.setText(comboBoxWelfareLavel.getSelectedItem().toString());
             run1019.addBreak();
 
             XWPFRun run1020 = parag10.createRun();
             run1020.setFontFamily("Times New Roman");
             run1020.setFontSize(12);
             run1020.setBold(true);
-            run1020.setText("21. Образование");
+            run1020.setText("21. Образование  ");
             XWPFRun run1021 = parag10.createRun();
             run1021.setFontFamily("Times New Roman");
             run1021.setFontSize(12);
-            run1021.setText(" ________________________________________________________________________");
+            run1021.setText(comboBoxEducation.getSelectedItem().toString());
             run1021.addBreak();
 
             XWPFRun run1022 = parag10.createRun();
@@ -1664,11 +1663,11 @@ public class Registrator extends javax.swing.JFrame {
             run1024.setFontFamily("Times New Roman");
             run1024.setFontSize(12);
             run1024.setBold(true);
-            run1024.setText("23. Семейное положение:");
+            run1024.setText("23. Семейное положение:  ");
             XWPFRun run1025 = parag10.createRun();
             run1025.setFontFamily("Times New Roman");
             run1025.setFontSize(12);
-            run1025.setText(" одинокий, одиноко проживающий, семейный, наличие иждивенцев  да/нет, проживает с родственниками, помогающими в обслуживании, проживает с родственниками, не обеспечивающими помощь, другое ______________________________________________________");
+            run1025.setText(comboBoxMaritalStatus.getSelectedItem().toString());
             run1025.addBreak();
 
             XWPFParagraph parag11 = myNewDoc.createParagraph();
@@ -4162,6 +4161,7 @@ public class Registrator extends javax.swing.JFrame {
             fos.close();
 
             System.out.println("Document created");
+            java.lang.Process builder = new ProcessBuilder("C:\\Program Files (x86)\\Microsoft Office\\Office16\\WINWORD.exe", "D:\\Reabilitation card.docx").start();
         } catch (Exception e) {
             System.out.println("Something is wrong");
         }
