@@ -21,10 +21,10 @@ public class LoginForm extends javax.swing.JFrame {
     private void initComponents() {
 
         okBtn = new javax.swing.JButton();
-        textFieldLogin = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         passworfField = new javax.swing.JPasswordField();
+        comboBoxLoginSpec = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("МЕДУНИЦА");
@@ -37,24 +37,26 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        lblLogin.setText("Логин");
+        lblLogin.setText("Специальность");
 
         lblPassword.setText("Пароль");
+
+        comboBoxLoginSpec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "администратор", "регистратор" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(okBtn)
-                    .addComponent(textFieldLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(passworfField, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(passworfField, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(comboBoxLoginSpec, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
@@ -62,8 +64,8 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLogin))
+                    .addComponent(lblLogin)
+                    .addComponent(comboBoxLoginSpec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPassword)
@@ -78,13 +80,21 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
+
         
-        System.out.println(textFieldLogin.getText());
-        System.out.println(passworfField.getPassword());
-        
-        Registrator registrator = new Registrator();
-        registrator.setVisible(true);
-        
+//        Registrator registrator = new Registrator();
+//        registrator.setVisible(true);
+        switch (comboBoxLoginSpec.getSelectedItem().toString()) {
+            case("администратор"):
+                AdminForm adminForm = new AdminForm();
+                adminForm.setVisible(true);   
+                break;
+            case("регистратор"):
+                Registrator registrator = new Registrator();
+                registrator.setVisible(true);
+                break;
+        }
+               
         this.setVisible(false);
         this.dispose();
         
@@ -124,10 +134,10 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboBoxLoginSpec;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JButton okBtn;
     private javax.swing.JPasswordField passworfField;
-    private javax.swing.JTextField textFieldLogin;
     // End of variables declaration//GEN-END:variables
 }

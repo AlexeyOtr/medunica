@@ -51,7 +51,7 @@ public class DataBase {
                 Statement stmt = conn.createStatement();
                 return stmt.executeQuery(query);
             } catch (SQLException ex) {
-                System.err.println("Ошибка запроса к БД");
+                System.err.println("Ошибка запроса к БД " + ex);
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame,"Ошибка отправки запроса","ОШИБКА",JOptionPane.ERROR_MESSAGE);
                 return null;
@@ -77,7 +77,19 @@ public class DataBase {
                 stmt.executeUpdate(query);
                 return true;
             } catch (SQLException ex) {
-                System.err.println("Ошибка запроса к БД");
+                System.err.println("Ошибка запроса к БД UPDATE");
+                return false;
+            }
+    }
+    
+    // Отправка запроса на удаление данных
+    public boolean sendDelete(String query){
+        try {
+                Statement stmt = conn.createStatement();
+                stmt.execute(query);
+                return true;
+            } catch (SQLException ex) {
+                System.err.println("Ошибка запроса к БД при удалении данных");
                 return false;
             }
     }
