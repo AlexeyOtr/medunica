@@ -41,7 +41,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         lblPassword.setText("Пароль");
 
-        comboBoxLoginSpec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "администратор", "регистратор" }));
+        comboBoxLoginSpec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "администратор", "регистратор", "расписание" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,6 +92,10 @@ public class LoginForm extends javax.swing.JFrame {
             case("регистратор"):
                 Registrator registrator = new Registrator();
                 registrator.setVisible(true);
+                break;
+            case("расписание"):
+                Sheduler sheduler = new Sheduler();
+                sheduler.setVisible(true);
                 break;
         }
                
