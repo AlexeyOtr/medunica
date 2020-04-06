@@ -2,7 +2,7 @@ package medunica;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -35,6 +35,12 @@ public class Sheduler extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            updateListSheduleDay();
+        } catch (ParseException ex) {
+            Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -55,7 +61,6 @@ public class Sheduler extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         dateChooserPanel1 = new datechooser.beans.DateChooserPanel();
         comboBoxSpes = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jListSheduleDay = new javax.swing.JList<>();
         Date date = new Date();
@@ -64,6 +69,7 @@ public class Sheduler extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,16 +140,20 @@ public class Sheduler extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Установка расписания для");
 
+        dateChooserPanel1.addSelectionChangedListener(new datechooser.events.SelectionChangedListener() {
+            public void onSelectionChange(datechooser.events.SelectionChangedEvent evt) {
+                dateChooserPanel1OnSelectionChange(evt);
+            }
+        });
         dateChooserPanel1.addCommitListener(new datechooser.events.CommitListener() {
             public void onCommit(datechooser.events.CommitEvent evt) {
                 dateChooserPanel1OnCommit(evt);
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxSpes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                comboBoxSpesActionPerformed(evt);
             }
         });
 
@@ -165,6 +175,13 @@ public class Sheduler extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -172,9 +189,6 @@ public class Sheduler extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -189,9 +203,12 @@ public class Sheduler extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(comboBoxSpes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,31 +252,104 @@ public class Sheduler extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        // System.out.println(comboBoxSpes.getSelectedItem().toString());
-        String phrase = comboBoxSpes.getSelectedItem().toString();
-        String[] tokens = phrase.split("[ ,]+");
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void dateChooserPanel1OnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_dateChooserPanel1OnCommit
-        // TODO add your handling code here:
-        System.out.println("UIUHIUH");
+        
+        try {
+            updateListSheduleDay();
+        } catch (ParseException ex) {
+            Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_dateChooserPanel1OnCommit
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        defaultListModel.addElement(new SimpleDateFormat("HH:mm").format(jSpinnerSetTime.getValue()));
-        db.sendInsert("INSERT INTO medunica.nomination (client_id, personal_id, kabinet_id, date, time) VALUES ((SELECT c.id FROM clients c WHERE c.snils='000-000-000-00'),\n" +
-                        "  (SELECT p.id FROM personal p WHERE p.family='Ледовская' && p.name='Людмила' && p.patronomic='Викторовна'),\n" +
-                        "  (SELECT c.id FROM cabinet c WHERE c.number=1), '12.03.2020', '17:30')");
+        
+        //defaultListModel.addElement(new SimpleDateFormat("HH:mm").format(jSpinnerSetTime.getValue()));
+        String parseComboboxSpec = comboBoxSpes.getSelectedItem().toString();
+        String[] parse = parseComboboxSpec.split("[ ,]+");
+        
+        String dateTime = new SimpleDateFormat("yyyy-MM-dd").format(dateChooserPanel1.getSelectedDate().getTimeInMillis());
+        dateTime += " " + new SimpleDateFormat("HH:mm").format(jSpinnerSetTime.getValue());
+        
+        db.sendInsert("INSERT INTO medunica.shedule_personal (personal_id, datetime) VALUES "
+                    + " ((SELECT p.id FROM medunica.personal p WHERE p.family='"+parse[0]+"' && p.name='"+parse[1]+"' && p.patronomic='"+parse[2]+"'),"
+                    + " '"+ dateTime +"')");
+
+        defaultListModel.addElement(dateTime);
+        
+//        try {
+//            Date d = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(dateTime);
+//            defaultListModel.addElement(d);
+//            System.out.println("Mil " + d.getTime());
+//        } catch (ParseException ex) {
+//            Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
         int defModel = jListSheduleDay.getSelectedIndex();
-        defaultListModel.remove(defModel);
+        
+        String parseComboboxSpec = comboBoxSpes.getSelectedItem().toString();
+        String[] parse = parseComboboxSpec.split("[ ,]+");
+        
+        if(defModel >= 0){
+            db.sendDelete("DELETE FROM medunica.shedule_personal WHERE "
+                    + "personal_id=(SELECT id FROM medunica.personal p WHERE p.family='"+ parse[0] +"' AND p.name='"+ parse[1] +"' AND p.patronomic='"+ parse[2] +"') "
+                    + "AND datetime='"+ jListSheduleDay.getSelectedValue() +"'");
+//            System.out.println(parse[0] + " " + parse[1] + " " + parse[2] + " " + jListSheduleDay.getSelectedValue());
+            defaultListModel.remove(defModel);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try {
+            updateListSheduleDay();
+        } catch (ParseException ex) {
+            Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void dateChooserPanel1OnSelectionChange(datechooser.events.SelectionChangedEvent evt) {//GEN-FIRST:event_dateChooserPanel1OnSelectionChange
+        
+        try {
+            updateListSheduleDay();
+        } catch (ParseException ex) {
+            Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dateChooserPanel1OnSelectionChange
+
+    private void comboBoxSpesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxSpesActionPerformed
+        
+        try {
+            updateListSheduleDay();
+        } catch (ParseException ex) {
+            Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_comboBoxSpesActionPerformed
+
+    // Обновление данных времени работы 
+    private void updateListSheduleDay() throws ParseException{
+        
+        defaultListModel.removeAllElements();
+        
+        String dateTime = new SimpleDateFormat("yyyy-MM-dd").format(dateChooserPanel1.getSelectedDate().getTimeInMillis());
+        
+        String parseComboboxSpec = comboBoxSpes.getSelectedItem().toString();
+        String[] parse = parseComboboxSpec.split("[ ,]+");
+        
+        ResultSet rs = db.sendSelect("SELECT sp.datetime FROM medunica.shedule_personal sp WHERE DATE(datetime) = DATE('"+ dateTime +"')"
+                + " AND sp.personal_id=(SELECT p.id FROM medunica.personal p WHERE p.family='"+parse[0]+"' && p.name='"+parse[1]+"' && p.patronomic='"+parse[2]+"')");
+        try {
+            while (rs.next()){
+                defaultListModel.addElement(rs.getString("datetime"));
+//                System.out.println(rs.getString("datetime"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboBoxSpes;
