@@ -47,6 +47,8 @@ public class Sheduler extends javax.swing.JFrame {
         
         try {
             updateListPersonSheduleDay();
+            updateListClientSpecShedule();
+            
         } catch (ParseException ex) {
             Logger.getLogger(Sheduler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,16 +60,17 @@ public class Sheduler extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
+        dateChooserComboClientSheduler = new datechooser.beans.DateChooserCombo();
         jScrollPane1 = new javax.swing.JScrollPane();
         listClientShedule = new javax.swing.JList<>();
         formattedTextFieldFindSnilsClient = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSnilsSearchClient = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         comboBoxSpecClients = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         listClientSpecShedule = new javax.swing.JList<>();
         comboBoxClientShedule = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         dateChooserPanel1 = new datechooser.beans.DateChooserPanel();
@@ -84,6 +87,17 @@ public class Sheduler extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("МЕДУНИЦА РАСПИСАНИЕ");
 
+        dateChooserComboClientSheduler.addSelectionChangedListener(new datechooser.events.SelectionChangedListener() {
+            public void onSelectionChange(datechooser.events.SelectionChangedEvent evt) {
+                dateChooserComboClientShedulerOnSelectionChange(evt);
+            }
+        });
+        dateChooserComboClientSheduler.addCommitListener(new datechooser.events.CommitListener() {
+            public void onCommit(datechooser.events.CommitEvent evt) {
+                dateChooserComboClientShedulerOnCommit(evt);
+            }
+        });
+
         jScrollPane1.setViewportView(listClientShedule);
 
         try {
@@ -92,10 +106,10 @@ public class Sheduler extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSnilsSearchClient.setText("jButton1");
+        btnSnilsSearchClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSnilsSearchClientActionPerformed(evt);
             }
         });
 
@@ -107,9 +121,21 @@ public class Sheduler extends javax.swing.JFrame {
             }
         });
 
+        listClientSpecShedule.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listClientSpecSheduleMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(listClientSpecShedule);
 
         comboBoxClientShedule.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Расписание для" }));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,42 +144,47 @@ public class Sheduler extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(formattedTextFieldFindSnilsClient, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxClientShedule, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxClientShedule, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(formattedTextFieldFindSnilsClient, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSnilsSearchClient, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dateChooserComboClientSheduler, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxSpecClients, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comboBoxSpecClients, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboBoxClientShedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(formattedTextFieldFindSnilsClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1))
-                            .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(comboBoxSpecClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(dateChooserComboClientSheduler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(formattedTextFieldFindSnilsClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSnilsSearchClient)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxClientShedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxSpecClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addContainerGap())
         );
@@ -218,7 +249,7 @@ public class Sheduler extends javax.swing.JFrame {
                         .addComponent(comboBoxSpes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -239,7 +270,7 @@ public class Sheduler extends javax.swing.JFrame {
                     .addComponent(jSpinnerSetTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         JSpinner.DateEditor de = new JSpinner.DateEditor(jSpinnerSetTime, "HH:mm");
@@ -329,7 +360,7 @@ public class Sheduler extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxSpesActionPerformed
 
     // Кнопка поиска клиента по снилс
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSnilsSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnilsSearchClientActionPerformed
         
         String prest= "SELECT * FROM clients WHERE snils='"+formattedTextFieldFindSnilsClient.getText()+"'";
         
@@ -340,67 +371,60 @@ public class Sheduler extends javax.swing.JFrame {
                 comboBoxClientShedule.removeAllItems();
                 while (rs.next()){
                     comboBoxClientShedule.addItem(rs.getString("family") + " " + rs.getString("name") + " " + rs.getString("patronomic") + ", " + rs.getString("date_birth"));
-//                String mov_name = rs.getString(2);
-//                System.out.println(mov_name);
-//                selectedID = rs.getString("id");
-//                textFieldFamily.setText(rs.getString("family"));
-//                textFieldName.setText(rs.getString("name"));
-//                textFieldPatron.setText(rs.getString("patronomic"));
-//                formattedTextFieldDateBirth.setText(rs.getString("date_birth"));
-//                formattedTextFieldPasportSeries.setText(rs.getString("pasport_series"));
-//                formattedTextFieldPasportNumber.setText(rs.getString("pasport_number"));
-//                formattedTextFieldDateOfIssue.setText(rs.getString("date_of_issue"));
-//                formattedTextFieldTelephone.setText(rs.getString("telephone"));
-//                formattedTextFieldEmail.setText(rs.getString("email"));
-//                textFieldIssuedBy.setText(rs.getString("issued_by"));
-//                textFieldResidenceAddress.setText(rs.getString("residence_address"));
-//                textFieldPermanentRegistration.setText(rs.getString("permanent_registration"));
-//                textFieldIpr.setText(rs.getString("ipr"));
-//                formattedTextFieldIprData.setText(rs.getString("ipr_date"));
-//                comboBoxServiceForm.getModel().setSelectedItem(rs.getString("service_form"));
-//                
-//                comboBoxDisabilityGroup.getModel().setSelectedItem(rs.getString("disability_group"));
-//                comboBoxPrimaryViolations.getModel().setSelectedItem(rs.getString("primary_violations"));
-//                comboBoxRehabilitationFacilities.getModel().setSelectedItem(rs.getString("rehabilitation_facilities"));
-//                comboBoxWelfareLavel.getModel().setSelectedItem(rs.getString("welfare_level"));
-//                comboBoxEducation.getModel().setSelectedItem(rs.getString("education"));
-//                comboBoxMaritalStatus.getModel().setSelectedItem(rs.getString("marital_status"));
-//                textFieldCauseOfDisability.setText(rs.getString("cause_of_disability"));
-//                formattedTextFieldDisabilityDate.setText(rs.getString("disability_date"));
-//                textFieldPlaceOfWork.setText(rs.getString("place_of_work"));
-//                spinnerNamberOfFamily.setValue(Integer.valueOf(rs.getString("number_family_members")));
-//                spinnerNumberMinorChildren.setValue(Integer.valueOf(rs.getString("number_minor_children")));
-//                
-//                formattedTextFieldRecipientIncome12Months.setText(rs.getString("recipient_income12_months"));
-//                formattedTextFieldSpousesIncome12Months.setText(rs.getString("spouses_income12_months"));
-//                formattedTextFieldIncomeMotherFather.setText(rs.getString("income_mother_father"));
-//                formattedTextFieldAmountIncomeAllFamily.setText(rs.getString("amount_income_all_family"));
-//                formattedTextFieldAverageRevenue.setText(rs.getString("average_revenue"));
-//                formattedTextFieldRecipientsPerCapitaIncome.setText(rs.getString("recipients_per_capitaIncome"));
-//                formattedTextField75pRecipientIncome.setText(rs.getString("_75p_recipient_income"));
-//                formattedTextFieldCapPerCapitaIncome.setText(rs.getString("cap_per_capita_income"));
-//                formattedTextFieldDifferencePerCapitaIncome.setText(rs.getString("difference_per_capita_income"));
-//                formattedTextFieldNumberDaysMonth.setText(rs.getString("number_days_month"));
-//                formattedTextFieldActualNumberDays.setText(rs.getString("actual_number_days"));
-//                formattedTextFieldContract24Days.setText(rs.getString("contract_24_days"));
-//                formattedTextFieldActualContractAmount.setText(rs.getString("actual_contract_amount"));
-//                comboBoxStatus_source_income_all.getModel().setSelectedItem(rs.getString("status_source_income_all"));
-//                comboBoxSpousesIncome12Months.getModel().setSelectedItem(rs.getString("status_spouses_income_12_months"));
-//                comboBoxIncomeMotherFather.getModel().setSelectedItem(rs.getString("status_income_mother_father"));
-                System.out.println("!!!!!!!!!!!!!!!!");
                 }
             } 
             
         } catch (SQLException ex) {
             Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        updateListClientShedule();
+        
        // System.out.println("Number of records: " + count);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSnilsSearchClientActionPerformed
 
     private void comboBoxSpecClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxSpecClientsActionPerformed
-        
+        updateListClientSpecShedule();
     }//GEN-LAST:event_comboBoxSpecClientsActionPerformed
 
+    private void dateChooserComboClientShedulerOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_dateChooserComboClientShedulerOnCommit
+//        String dateTime = new SimpleDateFormat("yyyy-MM-dd").format(dateChooserComboClientSheduler.getSelectedDate().getTimeInMillis());
+//        System.out.println(dateTime);
+        updateListClientSpecShedule();
+    }//GEN-LAST:event_dateChooserComboClientShedulerOnCommit
+
+    private void dateChooserComboClientShedulerOnSelectionChange(datechooser.events.SelectionChangedEvent evt) {//GEN-FIRST:event_dateChooserComboClientShedulerOnSelectionChange
+//        String dateTime = new SimpleDateFormat("yyyy-MM-dd").format(dateChooserComboClientSheduler.getSelectedDate().getTimeInMillis());
+//        System.out.println("### " + dateTime);
+    }//GEN-LAST:event_dateChooserComboClientShedulerOnSelectionChange
+
+    private void listClientSpecSheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listClientSpecSheduleMouseClicked
+        if (evt.getClickCount() == 2) {
+            System.out.println(listClientSpecShedule.getSelectedValue());
+            
+            String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
+            String[] parse = parseComboboxSpec.split("[ ,]+");
+
+            String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(dateChooserComboClientSheduler.getSelectedDate().getTimeInMillis());
+            
+            db.sendInsert("INSERT INTO medunica.nomination (client_id, personal_id, kabinet_id, datetime)"
+                + " VALUES ((SELECT c.id FROM clients c WHERE c.snils='"+formattedTextFieldFindSnilsClient.getText()+"' ), "
+                + "(SELECT p.id FROM personal p WHERE p.family='"+parse[0]+"' AND p.name='"+parse[1]+"' AND p.patronomic='"+parse[2]+"'),"
+                + " 1, "
+                + "'"+ listClientSpecShedule.getSelectedValue().toString() +"')");
+            
+            db.sendUpdate("UPDATE medunica.shedule_personal sp SET sp.client_id=(SELECT c.id FROM clients c WHERE c.snils='"+formattedTextFieldFindSnilsClient.getText()+"') WHERE sp.personal_id=(SELECT p.id FROM personal p WHERE p.family='"+parse[0]+"' AND p.name='"+parse[1]+"' AND p.patronomic='"+parse[2]+"') AND sp.datetime='"+ listClientSpecShedule.getSelectedValue().toString() +"'");
+
+            //dlmListSheduleDayPerson.addElement(dateTime);
+            updateListClientShedule();
+        }
+    }//GEN-LAST:event_listClientSpecSheduleMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        updateListClientShedule();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
     // Обновление данных времени работы при установке расписания работы сотрудников
     private void updateListPersonSheduleDay() throws ParseException{
         
@@ -423,11 +447,58 @@ public class Sheduler extends javax.swing.JFrame {
         }
     }
 
+    // Обновление listClientShedule в расписании клиентов
+    private void updateListClientShedule(){
+        
+             
+        dlmListClientShedule.removeAllElements();
+        
+        String dateTime = new SimpleDateFormat("yyyy-MM-dd").format(dateChooserComboClientSheduler.getSelectedDate().getTimeInMillis());
+        
+        String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
+        String[] parse = parseComboboxSpec.split("[ ,]+");
+        
+        ResultSet rs = db.sendSelect("SELECT n.datetime FROM medunica.nomination n INNER JOIN medunica.clients c ON n.client_id=c.id AND c.snils='"+formattedTextFieldFindSnilsClient.getText()+"' AND DATE(n.datetime) = DATE('"+ dateTime +"')");
+        try {
+            while (rs.next()){
+                dlmListClientShedule.addElement(rs.getString("datetime"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    // Обновление listClientSpecShedule в расписании клиентов
+    private void updateListClientSpecShedule(){
+        
+        
+        dlmListClientSpecShedule.removeAllElements();
+        
+        String dateTime = new SimpleDateFormat("yyyy-MM-dd").format(dateChooserComboClientSheduler.getSelectedDate().getTimeInMillis());
+        
+        String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
+        String[] parse = parseComboboxSpec.split("[ ,]+");
+        
+        ResultSet rs = db.sendSelect("SELECT sp.datetime FROM medunica.shedule_personal sp WHERE DATE(datetime) = DATE('"+ dateTime +"')"
+                + " AND sp.personal_id=(SELECT p.id FROM medunica.personal p WHERE p.family='"+parse[0]+"' && p.name='"+parse[1]+"' && p.patronomic='"+parse[2]+"')");
+        try {
+            while (rs.next()){
+                dlmListClientSpecShedule.addElement(rs.getString("datetime"));
+//                System.out.println(rs.getString("datetime"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSnilsSearchClient;
     private javax.swing.JComboBox<String> comboBoxClientShedule;
     private javax.swing.JComboBox<String> comboBoxSpecClients;
     private javax.swing.JComboBox<String> comboBoxSpes;
-    private datechooser.beans.DateChooserCombo dateChooserCombo2;
+    private datechooser.beans.DateChooserCombo dateChooserComboClientSheduler;
     private datechooser.beans.DateChooserPanel dateChooserPanel1;
     private javax.swing.JFormattedTextField formattedTextFieldFindSnilsClient;
     private javax.swing.JButton jButton1;
