@@ -37,6 +37,7 @@ public class Sheduler extends javax.swing.JFrame {
         // заполнение комбо бокса специалистами
         ResultSet rs = db.sendSelect("SELECT family, name, patronomic, spec_name FROM personal INNER JOIN spec ON spec_id=spec.id WHERE status='медперсонал';");
         try {
+            //ResultSet rs = db.sendSelect("SELECT family, name, patronomic, spec_name FROM personal INNER JOIN spec ON spec_id=spec.id WHERE status='медперсонал';");
             while (rs.next()){
                 comboBoxSpes.addItem(rs.getString("family") + " " + rs.getString("name") + " " + rs.getString("patronomic") + ", " + rs.getString("spec_name"));
                 comboBoxSpecClients.addItem(rs.getString("family") + " " + rs.getString("name") + " " + rs.getString("patronomic") + ", " + rs.getString("spec_name"));
@@ -70,6 +71,7 @@ public class Sheduler extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         listClientSpecShedule = new javax.swing.JList<>();
         comboBoxClientShedule = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblSetSheduleFor = new javax.swing.JLabel();
         dateChooserPanelPersonal = new datechooser.beans.DateChooserPanel();
@@ -92,6 +94,11 @@ public class Sheduler extends javax.swing.JFrame {
             }
         });
 
+        listClientShedule.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listClientSheduleMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(listClientShedule);
 
         try {
@@ -124,6 +131,13 @@ public class Sheduler extends javax.swing.JFrame {
 
         comboBoxClientShedule.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Расписание для" }));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,9 +157,11 @@ public class Sheduler extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(comboBoxSpecClients, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -159,7 +175,9 @@ public class Sheduler extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(formattedTextFieldFindSnilsClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSnilsSearchClient)))
-                    .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxClientShedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,6 +362,8 @@ public class Sheduler extends javax.swing.JFrame {
     // Кнопка поиска клиента по снилс
     private void btnSnilsSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnilsSearchClientActionPerformed
         
+        comboBoxClientShedule.removeAllItems();
+        
         String prest= "SELECT * FROM clients WHERE snils='"+formattedTextFieldFindSnilsClient.getText()+"'";
         
         ResultSet rs = db.sendSelect(prest);
@@ -383,17 +403,37 @@ public class Sheduler extends javax.swing.JFrame {
             
             String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
             String[] parse = parseComboboxSpec.split("[ ,]+");
-
-            db.sendInsert("INSERT INTO medunica.nomination (client_id, personal_id, datetime)"
-                + " VALUES ((SELECT c.id FROM clients c WHERE c.snils='"+formattedTextFieldFindSnilsClient.getText()+"' ), "
-                + "(SELECT p.id FROM personal p WHERE p.family='"+parse[0]+"' AND p.name='"+parse[1]+"' AND p.patronomic='"+parse[2]+"'),"
-                + "'"+ listClientSpecShedule.getSelectedValue().toString() +"')");
             
+            db.sendInsert("INSERT INTO medunica.nomination (client_id, personal_id, datetime) VALUES ((SELECT c.id FROM clients c WHERE c.snils='"+ formattedTextFieldFindSnilsClient.getText() +"' ), (SELECT p.id FROM personal p WHERE p.family='"+ parse[0] +"' AND p.name='"+ parse[1] +"' AND p.patronomic='"+ parse[2] +"'), '"+ listClientSpecShedule.getSelectedValue().toString() +"');");
             db.sendUpdate("UPDATE medunica.shedule_personal sp SET sp.client_id=(SELECT c.id FROM clients c WHERE c.snils='"+formattedTextFieldFindSnilsClient.getText()+"') WHERE sp.personal_id=(SELECT p.id FROM personal p WHERE p.family='"+parse[0]+"' AND p.name='"+parse[1]+"' AND p.patronomic='"+parse[2]+"') AND sp.datetime='"+ listClientSpecShedule.getSelectedValue().toString() +"'");
 
+            updateListClientSpecShedule();
             updateListClientShedule();
+            
         }
     }//GEN-LAST:event_listClientSpecSheduleMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        updateListClientShedule();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    // Обработчик двойного клика по расписанию клиента для удаления
+    private void listClientSheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listClientSheduleMouseClicked
+        if (evt.getClickCount() == 2) {
+            
+            String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
+            String[] parse = parseComboboxSpec.split("[ ,]+");
+            
+            System.out.println(listClientShedule.getSelectedValue());
+
+           // db.sendDelete("");
+           // db.sendUpdate(parseComboboxSpec);
+            
+            updateListClientSpecShedule();
+            updateListClientShedule();
+            
+        }
+    }//GEN-LAST:event_listClientSheduleMouseClicked
 
     // Обновление данных времени работы при установке расписания работы сотрудников
     private void updateListPersonSheduleDay() throws ParseException{
@@ -410,7 +450,6 @@ public class Sheduler extends javax.swing.JFrame {
         try {
             while (rs.next()){
                 dlmListSheduleDayPerson.addElement(rs.getString("datetime"));
-//                System.out.println(rs.getString("datetime"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
@@ -436,7 +475,7 @@ public class Sheduler extends javax.swing.JFrame {
             " INNER JOIN medunica.spec s ON p.spec_id=s.id");
         try {
             while (rs.next()){
-                dlmListClientShedule.addElement(rs.getString("datetime") + "  каб.№" + rs.getString("number"));
+                dlmListClientShedule.addElement(rs.getString("datetime") + ", каб.№" + rs.getString("number"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
@@ -454,12 +493,11 @@ public class Sheduler extends javax.swing.JFrame {
         String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
         String[] parse = parseComboboxSpec.split("[ ,]+");
         
-        ResultSet rs = db.sendSelect("SELECT sp.datetime FROM medunica.shedule_personal sp WHERE DATE(datetime) = DATE('"+ dateTime +"')"
-                + " AND sp.personal_id=(SELECT p.id FROM medunica.personal p WHERE p.family='"+parse[0]+"' && p.name='"+parse[1]+"' && p.patronomic='"+parse[2]+"')");
+        ResultSet rs = db.sendSelect("SELECT sp.datetime, sp.client_id FROM medunica.shedule_personal sp WHERE DATE(datetime) = DATE('"+ dateTime +"')"
+                + " AND sp.personal_id=(SELECT p.id FROM medunica.personal p WHERE p.family='"+parse[0]+"' && p.name='"+parse[1]+"' && p.patronomic='"+parse[2]+"') AND sp.client_id IS NULL");
         try {
             while (rs.next()){
                 dlmListClientSpecShedule.addElement(rs.getString("datetime"));
-//                System.out.println(rs.getString("datetime"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
@@ -477,6 +515,7 @@ public class Sheduler extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserComboClientSheduler;
     private datechooser.beans.DateChooserPanel dateChooserPanelPersonal;
     private javax.swing.JFormattedTextField formattedTextFieldFindSnilsClient;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
