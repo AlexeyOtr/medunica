@@ -424,10 +424,15 @@ public class Sheduler extends javax.swing.JFrame {
             String parseComboboxSpec = comboBoxSpecClients.getSelectedItem().toString();
             String[] parse = parseComboboxSpec.split("[ ,]+");
             
-            System.out.println(listClientShedule.getSelectedValue());
+            String parseListClientShedule = listClientShedule.getSelectedValue();
+            String[] pars = parseListClientShedule.split("[ ,каб.№]+");
+            
+            System.out.println(pars[0]);
+            System.out.println(pars[1]);
+            System.out.println(pars[2]);
 
-           // db.sendDelete("");
-           // db.sendUpdate(parseComboboxSpec);
+            db.sendDelete("DELETE FROM medunica.nomination WHERE datetime='"+ pars[0] +" "+ pars[1] +"' AND client_id=(SELECT c.id FROM medunica.clients c WHERE c.snils='"+ formattedTextFieldFindSnilsClient.getText() +"')");
+            db.sendUpdate("UPDATE medunica.shedule_personal sp SET sp.client_id=NULL WHERE sp.datetime='"+ pars[0] +" "+ pars[1] +"' AND sp.client_id=(SELECT c.id FROM medunica.clients c WHERE c.snils='"+ formattedTextFieldFindSnilsClient.getText() +"')");
             
             updateListClientSpecShedule();
             updateListClientShedule();
