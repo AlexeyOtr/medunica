@@ -80,7 +80,7 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
-
+//dikfi
         
 //        Registrator registrator = new Registrator();
 //        registrator.setVisible(true);
