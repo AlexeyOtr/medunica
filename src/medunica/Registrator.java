@@ -41,7 +41,7 @@ public class Registrator extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("medunica.jpg")));
         
         // подключение к базе
-        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
+        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "Passw0rd3");
         
         // установка текущей даты в графу "Дата поступления"
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");

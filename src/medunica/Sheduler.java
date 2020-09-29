@@ -22,7 +22,7 @@ public class Sheduler extends javax.swing.JFrame {
         initComponents();
         
         // подключение к базе
-        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "toor");
+        db = new DataBase("jdbc:mysql://localhost/medunica?character_set_server=utf8mb4&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "Passw0rd3");
         System.out.println(db);
         
         dlmListSheduleDayPerson = new DefaultListModel();
