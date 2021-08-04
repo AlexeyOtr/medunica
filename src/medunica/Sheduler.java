@@ -2,7 +2,6 @@ package medunica;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -14,20 +13,10 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
-import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
-import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableRow;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTP;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPageMar;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSectPr;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.STHdrFtr;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.STHeightRule;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.STTextDirection;
+
 
 public class Sheduler extends javax.swing.JFrame {
 
@@ -443,6 +432,29 @@ public class Sheduler extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         updateListClientShedule();
+        
+        ResultSet rs = db.sendSelect("SELECT\n" +
+                                        "  cabinet.number,\n" +
+                                        "  cabinet.description,\n" +
+                                        "  nomination.datetime,\n" +
+                                        "  personal.family,\n" +
+                                        "  personal.name,\n" +
+                                        "  personal.patronomic\n" +
+                                        " FROM clients\n" +
+                                        "  INNER JOIN nomination\n" +
+                                        "    ON clients.id = nomination.client_id\n" +
+                                        "  INNER JOIN personal\n" +
+                                        "    ON nomination.personal_id = personal.id\n" +
+                                        "  INNER JOIN cabinet\n" +
+                                        "    ON personal.kabinet_id = cabinet.id\n" +
+                                        " WHERE clients.snils='"+formattedTextFieldFindSnilsClient.getText()+"';");
+        try {
+            while (rs.next()){
+                System.out.println(rs.getString("datetime") + rs.getString("cabinet.number") + rs.getString("personal.family"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Обработчик двойного клика по расписанию клиента для удаления
@@ -469,130 +481,57 @@ public class Sheduler extends javax.swing.JFrame {
     }//GEN-LAST:event_listClientSheduleMouseClicked
 
     private void jButtonPrintSheduleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintSheduleClientActionPerformed
-        try {
-            FileOutputStream fos = new FileOutputStream(new File("Расписание для клиента.docx"));
+        
+        ResultSet rs = db.sendSelect("SELECT\n" +
+                                        "  cabinet.number,\n" +
+                                        "  cabinet.description,\n" +
+                                        "  nomination.datetime,\n" +
+                                        "  personal.family,\n" +
+                                        "  personal.name,\n" +
+                                        "  personal.patronomic\n" +
+                                        " FROM clients\n" +
+                                        "  INNER JOIN nomination\n" +
+                                        "    ON clients.id = nomination.client_id\n" +
+                                        "  INNER JOIN personal\n" +
+                                        "    ON nomination.personal_id = personal.id\n" +
+                                        "  INNER JOIN cabinet\n" +
+                                        "    ON personal.kabinet_id = cabinet.id\n" +
+                                        " WHERE clients.snils='"+formattedTextFieldFindSnilsClient.getText()+"';");
+
+        
+        XWPFDocument document= new XWPFDocument();  
+        
+        try(FileOutputStream out = new FileOutputStream(new File("Javatpoint.docx"))){  
+            // Creating Table  
+            XWPFTable tab = document.createTable();  
+            XWPFTableRow row = tab.getRow(0); // First row  
+            // Columns  
+            row.getCell(0).setText("Дата и время");  
+            row.addNewTableCell().setText("ФИО специалиста");  
+            row.addNewTableCell().setText("Номер кабинета");  
             
-            XWPFDocument myNewDoc = new XWPFDocument();
-
-            // Добавляется нумерация страниц
-            CTP ctp = CTP.Factory.newInstance();
-            //this add page number incremental
-            ctp.addNewR().addNewPgNum();
-
-            XWPFParagraph codePara = new XWPFParagraph(ctp, myNewDoc);
-            XWPFParagraph[] paragraphs = new XWPFParagraph[1];
-            paragraphs[0] = codePara;
-            //position of number
-            codePara.setAlignment(ParagraphAlignment.RIGHT);
-
-            CTSectPr sectPr = myNewDoc.getDocument().getBody().addNewSectPr();
-
-
-            XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(myNewDoc, sectPr);
-            headerFooterPolicy.createFooter(STHdrFtr.DEFAULT, paragraphs);
-
-
-            CTPageMar pageMar = sectPr.addNewPgMar();
-            pageMar.setLeft(BigInteger.valueOf(1200L));
-            pageMar.setTop(BigInteger.valueOf(423L));
-            pageMar.setRight(BigInteger.valueOf(567L));
-            pageMar.setBottom(BigInteger.valueOf(285L));
-
-
-            XWPFParagraph parag1 = myNewDoc.createParagraph();
-            XWPFRun run1 = parag1.createRun();
-            XWPFRun run01 = parag1.createRun();
-            
-            run1.setText("Государственное автономное учреждение социального обслуживания Краснодарского края");
-            run01.setText("«Краевой комплексный центр реабилитации инвалидов «Медуница»");
-            run01.addBreak();
-            run01.addBreak();
-            run01.setText("Расписание для ");
-            parag1.setAlignment(ParagraphAlignment.CENTER);
-            run1.setFontFamily("Times New Roman");
-            run1.setFontSize(13);
-            run1.setBold(true);
-            run1.addBreak();
-            parag1.setSpacingAfter(1000);
-            run01.setFontFamily("Times New Roman");
-            run01.setFontSize(13);
-            run01.setBold(true);
-            run01.addBreak();
-            // ТАБЛИЦА
-            XWPFTable table10 = myNewDoc.createTable();
-
-            XWPFTableRow table10RowOne = table10.getRow(0);
-
-            XWPFRun run10t1 =  table10RowOne.getCell(0).addParagraph().createRun();
-            run10t1.setFontFamily("Times New Roman"); run10t1.setFontSize(12); run10t1.setText(" № п/п ");
-            table10RowOne.getCell(0).removeParagraph(0);
-
-            String s10 = "";
-
-            for (int i = 1; i <= 7; i++) {
-                if (i == 1) {
-                    s10 = " Дата";
-                } else if (i == 2) {
-                    s10 = " АД/утро";
-                } else if (i == 3) {
-                    s10 = " АД/вечер";
-                } else if (i == 4) {
-                    s10 = " PS утро";
-                } else if (i == 5) {
-                    s10 = " PS вечер";
-                } else if (i == 6) {
-                    s10 = " T утром";
-                } else if (i == 7) {
-                    s10 = " T вечер";
-                } else s10 = " ";
-                XWPFRun run10t2 = table10RowOne.addNewTableCell().addParagraph().createRun();
-                run10t2.setFontFamily("Times New Roman");
-                run10t2.setFontSize(12);
-                run10t2.setText(s10);
-                table10RowOne.getCell(i).removeParagraph(0);
-
-            }
-            for (int i = 0; i < 8; i++) {
-                table10RowOne.getCell(i).setWidth("1500");
-            }
-
-//            table1RowOne.setHeight(300);
-//            table1RowOne.getCtRow().getTrPr().getTrHeightArray(0).setHRule(STHeightRule.EXACT);
-
-            for (int i = 1; i <= 29; i++) {
-                String s1 = "";
-                if (i == 0) {
-                    s1 = "1. Диета";
-                } else
-                if (i == 1) {
-                    s1 = "2. ЛФК";
-                } else
-                if (i == 2) {
-                    s1 = "3. Консультация физиотерапевта";
-                } else {
-                    s1 = " ";
+            try {
+                while (rs.next()){
+                    System.out.println(rs.getString("datetime") + rs.getString("cabinet.number") + rs.getString("personal.family"));
+                    row = tab.createRow(); // Second Row  
+                    row.getCell(0).setText("     " + String.valueOf(rs.getString("datetime")) + "    ");  
+                    row.getCell(1).setText("     " + rs.getString("personal.family") + " " + rs.getString("personal.name") + " " + rs.getString("personal.patronomic") + "     ");  
+                    row.getCell(2).setText("     " + rs.getString("cabinet.number") + "     ");
                 }
-                XWPFTableRow table10RowTwo = table10.createRow();
-                table10RowTwo.setHeight(250);
-                table10RowTwo.getCtRow().getTrPr().getTrHeightArray(0).setHRule(STHeightRule.EXACT);
-
-                XWPFRun run10t01 = table10RowTwo.getCell(0).addParagraph().createRun();
-                run10t01.setFontFamily("Times New Roman");
-                run10t01.setFontSize(12);
-                run10t01.setText(" " + String.valueOf(i));
-                table10RowTwo.getCell(0).removeParagraph(0);
-
-
+            } catch (SQLException ex) {
+                Logger.getLogger(Registrator.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            myNewDoc.write(fos);
-            fos.close();
-
-            System.out.println("Document created");
+//            for(int i = 0; i < 5; i++){
+//                row = tab.createRow(); // Second Row  
+//                row.getCell(0).setText(String.valueOf(i));  
+//                row.getCell(1).setText("Irfan");  
+//                row.getCell(2).setText("irfan@gmail.com");  
+//            }
             
-           // java.lang.Process builder = new ProcessBuilder("C:\\Program Files (x86)\\Microsoft Office\\Office16\\WINWORD.exe", "ReabilitationCard.docx").start();
-        } catch (Exception e) {
-            System.out.println("Something is wrong");
+            document.write(out);  
+        
+        }catch(Exception e) {  
+            System.out.println(e);  
         }
     }//GEN-LAST:event_jButtonPrintSheduleClientActionPerformed
 
